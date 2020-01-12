@@ -3,4 +3,4 @@
 ## Dependencies
 
 * Senelium
-* Chrom driver
+* Chrome driver
