@@ -3,6 +3,7 @@ import re
 import time
 from selenium import webdriver
 
+
 URL = 'https://www.hackerrank.com/domains/algorithms'
 
 # driver the entity used by selenius to interact with a browser
@@ -58,6 +59,8 @@ problem_list.pop()
 # This stores the final urls
 problem_urls = []
 
+output_file = open("output.txt", "w")
+
 # For every problem card, it finds the problem name
 # and inserts it into a full url and stores it in the list
 for element in problem_list:
@@ -66,7 +69,9 @@ for element in problem_list:
                     + "/problem"
     difficulty = difficulty_regex.findall(element)[0]
     problem_urls.append(complete_url)
-    print(complete_url, "-", difficulty)
+    output_file.write(complete_url + "  --  " + difficulty + "\n")
 
+output_file.close()
+print("Done")
 
 
