@@ -4,7 +4,7 @@ import time
 from scrape_hackerrank import get_problem
 from selenium import webdriver
 
-
+category = 'data-structures'
 URL = 'https://www.hackerrank.com/domains/algorithms'
 count = 0
 
@@ -71,11 +71,14 @@ for element in problem_list:
                     + "/problem"
     difficulty = difficulty_regex.findall(element)[0]
     problem_urls.append([complete_url, difficulty])
-
+    if len(difficulty) > 0:     
+        problem_urls.append([complete_url, difficulty[0]])
 
 wait_for_login = WebDriverWait(driver, 10)
 already_logged_in = False
 
+# Main loop that loops through the list of urls and outputs the 
+# problem/solution pairs to the output file
 for problem_url in problem_urls:
     data = get_problem(problem_url[0])
     already_logged_in = True
