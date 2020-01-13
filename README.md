@@ -7,14 +7,15 @@
 
 ### Installing Dependencies
 
-The `ChromeDriver` executable can be downloaded from this [link](https://chromedriver.storage.googleapis.com/index.html?path=2.41/).
-
 #### Windows
 
-TODO
+Run `python -m pip install selenium`.
+
+The `ChromeDriver` executable can be downloaded from this [link](https://chromedriver.storage.googleapis.com/index.html?path=2.41/).
 
 #### Linux
 
+Run `pip3 install -r requirements.txt`.
 
 
 ```bash
