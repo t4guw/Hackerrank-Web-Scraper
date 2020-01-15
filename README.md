@@ -32,7 +32,7 @@ sudo chmod +x /usr/bin/chromedriver
 
 2. Download main.py and scrape_hackerrank.py into the same directory
 
-3. In main.py, there is a variable called "category". Change it to whichever hackerrank category you want to scrape. For instance, if you want to scrape the algorithms section (https://www.hackerrank.com/domains/algorithms) set category to "algorithms".
+3. `main.py` accepts a command line argument for a hackerrank category. Provide the name of whichever hackerrank category you want to scrape. For instance, if you want to scrape the algorithms section (https://www.hackerrank.com/domains/algorithms) , run `python3 main.py algorithms`.
 
-3. Run main.py (e.g. `python3 main.py`)
+3. Run main.py (e.g. `python3 main.py <category>`)
 

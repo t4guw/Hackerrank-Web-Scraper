@@ -1,11 +1,19 @@
 import re
 import time
+import argparse
 
 from scrape_hackerrank import get_problem
 from selenium import webdriver
+from utils.validation import category_name
 
-category = 'mathematics'
-URL = 'https://www.hackerrank.com/domains/' + category
+parser = argparse.ArgumentParser()
+parser.add_argument('category', type=category_name)
+args = parser.parse_args()
+
+if (not args.category):
+    raise ValueError('No category provided.')
+
+URL = f'https://www.hackerrank.com/domains/{args.category}' 
 count = 0
 
 # The problem at the bottom of the page
