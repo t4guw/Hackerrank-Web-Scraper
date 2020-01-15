@@ -30,26 +30,35 @@ def log_in(driver):
     driver.find_element_by_css_selector('#hr_v2 > div.portal-wrapper > div > div > div > section > div > div > div.tab-list-content > div.login-form.auth-form.theme-m > form > div.form-item.clearfix > button').click()
 
 
-# Removes all the html junk from the problem statement
-def decode_statement_html(s):
-    s = re.sub('(<span)(.+)(?=</span>)(</span>)', '[expression]', s)
-    s = re.sub('(<style)([\s\S]*)(?=</style>)(</style>)', '', s)
-    s = re.sub('((<)(.+?)(?=>))|((</)(.+)(?=>))|>', '', s) 
-    return s
-
-
-# Removes all the html junk from the solution
-def decode_solution_html(s):
+def remove_html_escapes(s):
     html_escapes = (
         ("'", '&#39;'),
         ('"', '&quot;'),
         ('>', '&gt;'),
         ('<', '&lt;'),
         ('&', '&amp;')
-    )  
-    s = re.sub('((<pre)(.+?)(?=>)(>))|(</pre>)', '', s)
+    )
     for code in html_escapes:
         s = s.replace(code[1], code[0])
+    return s
+
+# Removes all the html junk from the problem statement
+def decode_statement_html(s):
+    remove_html_escapes(s)
+    # Replaces <span>...</span> elements with "[expression]". These are formatted math equations
+    s = re.sub('(<span)(.+)(?=</span>)(</span>)', '[expression]', s)
+    # Deletes <style>...</style> elements
+    s = re.sub('(<style)([\s\S]*)(?=</style>)(</style>)', '', s)
+    # Deletes anything else between <angle brackets> to remove the remaining html code
+    s = re.sub('((<)(.+?)(?=>))|>', '', s) 
+    return s
+
+
+# Removes all the html junk from the solution
+def decode_solution_html(s):
+    remove_html_escapes(s)
+    # Deletes <pre>...</pre> elements
+    s = re.sub('((<pre)(.+?)(?=>)(>))|(</pre>)', '', s)
     return s
 
 

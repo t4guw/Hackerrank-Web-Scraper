@@ -8,11 +8,6 @@ category = 'mathematics'
 URL = 'https://www.hackerrank.com/domains/' + category
 count = 0
 
-# driver the entity used by selenius to interact with a browser
-# it should open up its own chrome window
-driver = webdriver.Chrome()
-driver.get(URL)
-
 # The problem at the bottom of the page
 last_problem = "" 
 # the problem that used to be at the bottom of the page
@@ -20,11 +15,15 @@ previous_last_problem = ""
 # stores whether or not there are any more problems to load
 reached_bottom = False
 
-# regular expression for finding the problem sub-url in the <a> ... </a> division for each 
-# problem card Format: "/challenges/problem-name"
+# regular expression for finding the problem sub-url and difficulty in the <a> ... </a> 
+# component for each problem card. Sub-url format: "/challenges/problem-name"
 problem_name_regex = re.compile("/challenges/(.*?)(?=\")")
-
 difficulty_regex = re.compile("difficulty (.*?)(?= )")
+
+# driver the entity used by selenius to interact with a browser
+# it should open up its own chrome window
+driver = webdriver.Chrome()
+driver.get(URL)
 
 # Due to hackerrank's "infinite scrolling" feature, most of the problems are not yet inserted 
 # into the page's html doc. This while loop continually scrolls down as far as possible and 
@@ -51,12 +50,13 @@ while not reached_bottom:
     # Waits three seconds for the page to load more problems.
     # Crude solution but it works
     time.sleep(3)
-    reached_bottom = True
 
 # creates a list of all problem cards
 problem_list = html_string.split('</a>')
+
 # for some reason, the last entry is always empty. Removes last entry
 problem_list.pop()
+
 # This stores the final urls
 problem_urls = []
 
