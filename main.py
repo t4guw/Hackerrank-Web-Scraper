@@ -7,11 +7,10 @@ from selenium import webdriver
 from utils.validation import category_name
 
 parser = argparse.ArgumentParser()
-parser.add_argument('category', type=category_name)
+parser.add_argument('category', type=category_name, help="Name of Hackerrank category which will have its webpage scraped. \
+                                                          ex: Given category = \'mathematics\', the tool will scrape \
+                                                              https://www.hackerrank.com/domains/mathematics.")
 args = parser.parse_args()
-
-if (not args.category):
-    raise ValueError('No category provided.')
 
 URL = f'https://www.hackerrank.com/domains/{args.category}' 
 count = 0
@@ -88,7 +87,7 @@ for problem_url in problem_urls:
     data = get_problem(driver, problem_url[0], count)
     already_logged_in = True
     count += 1
-    output_file.write("\n----------\n" + category.upper() + "." + str(count) + "\n" + problem_url[1] + "\n----------")
+    output_file.write("\n----------\n" + args.category.upper() + "." + str(count) + "\n" + problem_url[1] + "\n----------")
     output_file.write("\nPROBLEM STATEMENT:\n" + data[0] + "\n----------")
     output_file.write("\nTOP SOLUTION:\n----------\n" + data[1] + "\n----------\n====================")
     output_file.flush()
