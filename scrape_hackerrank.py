@@ -9,6 +9,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 
 
+top_link_regex = re.compile('/rest/contests(.*?)(?=\")')
+
 # Presses the escape key to exit a login popup
 def press_esc(driver):
     action = ActionChains(driver)
@@ -44,7 +46,7 @@ def remove_html_escapes(s):
 
 # Removes all the html junk from the problem statement
 def decode_statement_html(s):
-    remove_html_escapes(s)
+    s = remove_html_escapes(s)
     # Replaces <span>...</span> elements with "[expression]". These are formatted math equations
     s = re.sub('(<span)(.+)(?=</span>)(</span>)', '[expression]', s)
     # Deletes <style>...</style> elements
@@ -56,7 +58,7 @@ def decode_statement_html(s):
 
 # Removes all the html junk from the solution
 def decode_solution_html(s):
-    remove_html_escapes(s)
+    s = remove_html_escapes(s)
     # Deletes <pre>...</pre> elements
     s = re.sub('((<pre)(.+?)(?=>)(>))|(</pre>)', '', s)
     return s
@@ -76,6 +78,22 @@ def get_problem_statement(driver, already_logged_in):
     statement_string = statement_element.get_attribute('innerHTML')
     return decode_statement_html(statement_string)
 
+def get_cpp_link(driver):
+    cpp_regex = re.compile('(ellipsis">)C\+\+')
+    deleted_regex = re.compile('\[deleted\]')
+    solutions_list = driver.find_elements_by_class_name('table-row-wrapper')
+    count = 1
+
+    for element in solutions_list:
+        row_html = element.get_attribute('innerHTML')
+        cpp_found = cpp_regex.findall(row_html)
+        deleted_found = deleted_regex.findall(row_html)
+        if len(cpp_found) != 0 and len(deleted_found) == 0:
+            cpp_link = top_link_regex.findall(row_html)
+            if len(cpp_link) != 0:
+                return cpp_link[0]
+        count += 1
+    return ""   
 
 # Gets the top solution code of the current problem
 def get_problem_solution(driver, count):
@@ -92,27 +110,32 @@ def get_problem_solution(driver, count):
     # Here it tries to click the "unlock solutions" button
     # if it doesn't exist, meaning it has already been clicked before,
     # the wait.until() call will throw an exception and it just moves on
-    try:   
+    try:
+        #WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.CSS_SELECTOR, '#content > div > div > div > div.community-content > div > div.challenge-leaderboard > div > div > div.ui-tabs-wrap > div > section > div:nth-child(1) > div > button > div')))    
         WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.CSS_SELECTOR, '#content > div > div > div > div.community-content > div > div.challenge-leaderboard > div > div > div.ui-tabs-wrap > div > section > div:nth-child(1) > div > button > div')))    
         WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '#content > div > div > div > div.community-content > div > div.challenge-leaderboard > div > div > div.ui-tabs-wrap > div > section > div:nth-child(1) > div > button > div')))    
-        unlock_button = driver.find_element_by_css_selector('#content > div > div > div > div.community-content > div > div.challenge-leaderboard > div > div > div.ui-tabs-wrap > div > section > div:nth-child(1) > div > button')
+        unlock_button = driver.find_element_by_css_selector('#content > div > div > div > div.community-content > div > div.challenge-leaderboard > div > div > div.ui-tabs-wrap > div > section > div:nth-child(1) > div > button > div')
         action.click(unlock_button)
         action.perform()
 
+        # WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '#hr_v2 > div.portal-wrapper > div > div > div > section > div > div.ui-dialog-body > div > div > button.btn.hr_primary-btn.hr-dialog-button')))
+        # driver.find_element_by_css_selector('#hr_v2 > div.portal-wrapper > div > div > div > section > div > div.ui-dialog-body > div > div > button.btn.hr_primary-btn.hr-dialog-button').click()
         WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '#hr_v2 > div.portal-wrapper > div > div > div > section > div > div.ui-dialog-body > div > div > button.btn.hr_primary-btn.hr-dialog-button')))
         driver.find_element_by_css_selector('#hr_v2 > div.portal-wrapper > div > div > div > section > div > div.ui-dialog-body > div > div > button.btn.hr_primary-btn.hr-dialog-button').click()
-         
     except:
         x = "Do Nothing"
 
-    # Regex to parse out the link to the top solution, and the top solution from its html element
-    top_link_regex = re.compile('/rest/contests(.*?)(?=\")')
+    # Regex to parse out the link to the top solution
+    
 
     # Waits for the top solution's link to be found, then visits that link
     # Sometimes there are no solution links and it returns 'SOLUTION NOT FOUND'
     try:
-        WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.CSS_SELECTOR, '#content > div > div > div > div.community-content > div > div.challenge-leaderboard > div > div > div.ui-tabs-wrap > div > section > div.general-table-wrapper > div > div > div.table-body > div:nth-child(1) > div > div.table-row-column.ellipsis.solutions')))
-        top_solution_link = top_link_regex.findall(driver.find_element_by_css_selector('#content > div > div > div > div.community-content > div > div.challenge-leaderboard > div > div > div.ui-tabs-wrap > div > section > div.general-table-wrapper > div > div > div.table-body > div:nth-child(1) > div > div.table-row-column.ellipsis.solutions').get_attribute('innerHTML'))[0]
+        #olution_link = get_cpp_selector(driver) 
+        #WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.CSS_SELECTOR, '#content > div > div > div > div.community-content > div > div.challenge-leaderboard > div > div > div.ui-tabs-wrap > div > section > div.general-table-wrapper > div > div > div.table-body > div:nth-child(1) > div > div.table-row-column.ellipsis.solutions')))
+        #top_solution_link = top_link_regex.findall(driver.find_element_by_css_selector('#content > div > div > div > div.community-content > div > div.challenge-leaderboard > div > div > div.ui-tabs-wrap > div > section > div.general-table-wrapper > div > div > div.table-body > div:nth-child(1) > div > div.table-row-column.ellipsis.solutions').get_attribute('innerHTML'))[0]
+        #top_solution_link = top_link_regex.findall(driver.find_element_by_css_selector(solution_selector))
+        top_solution_link = get_cpp_link(driver)
         driver.get("https://www.hackerrank.com/rest/contests" + top_solution_link)
     except:
         return 'SOLUTION NOT FOUND'

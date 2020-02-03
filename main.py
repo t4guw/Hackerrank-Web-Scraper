@@ -4,7 +4,7 @@ import time
 from scrape_hackerrank import get_problem
 from selenium import webdriver
 
-category = 'mathematics'
+category = 'algorithms'
 URL = 'https://www.hackerrank.com/domains/' + category
 count = 0
 
@@ -50,6 +50,7 @@ while not reached_bottom:
     # Waits three seconds for the page to load more problems.
     # Crude solution but it works
     time.sleep(3)
+    #reached_bottom = True
 
 # creates a list of all problem cards
 problem_list = html_string.split('</a>')
@@ -60,7 +61,7 @@ problem_list.pop()
 # This stores the final urls
 problem_urls = []
 
-output_file = open("output.txt", "w")
+output_file = open(category + "_problems_hr.txt", "w")
 
 # For every problem card, it finds the problem name
 # and inserts it into a full url and stores it in the list
@@ -84,6 +85,8 @@ for problem_url in problem_urls:
     output_file.write("\nPROBLEM STATEMENT:\n" + data[0] + "\n----------")
     output_file.write("\nTOP SOLUTION:\n----------\n" + data[1] + "\n----------\n====================")
     output_file.flush()
-output_file.close()
+    print(count)
 
+output_file.close()
+driver.close()
 print("Done")
