@@ -1,11 +1,18 @@
 import re
 import time
+import argparse
 
 from scrape_hackerrank import get_problem
 from selenium import webdriver
+from utils.validation import category_name
 
-category = 'algorithms'
-URL = 'https://www.hackerrank.com/domains/' + category
+parser = argparse.ArgumentParser()
+parser.add_argument('category', type=category_name, help="Name of Hackerrank category which will have its webpage scraped. \
+                                                          ex: Given category = \'mathematics\', the tool will scrape \
+                                                              https://www.hackerrank.com/domains/mathematics.")
+args = parser.parse_args()
+
+URL = f'https://www.hackerrank.com/domains/{args.category}' 
 count = 0
 
 # The problem at the bottom of the page
@@ -50,7 +57,6 @@ while not reached_bottom:
     # Waits three seconds for the page to load more problems.
     # Crude solution but it works
     time.sleep(3)
-    #reached_bottom = True
 
 # creates a list of all problem cards
 problem_list = html_string.split('</a>')
@@ -61,7 +67,7 @@ problem_list.pop()
 # This stores the final urls
 problem_urls = []
 
-output_file = open(category + "_problems_hr.txt", "w")
+output_file = open("output.txt", "w")
 
 # For every problem card, it finds the problem name
 # and inserts it into a full url and stores it in the list
@@ -81,12 +87,10 @@ for problem_url in problem_urls:
     data = get_problem(driver, problem_url[0], count)
     already_logged_in = True
     count += 1
-    output_file.write("\n----------\n" + category.upper() + "." + str(count) + "\n" + problem_url[1] + "\n----------")
+    output_file.write("\n----------\n" + args.category.upper() + "." + str(count) + "\n" + problem_url[1] + "\n----------")
     output_file.write("\nPROBLEM STATEMENT:\n" + data[0] + "\n----------")
     output_file.write("\nTOP SOLUTION:\n----------\n" + data[1] + "\n----------\n====================")
     output_file.flush()
-    print(count)
-
 output_file.close()
-driver.close()
+
 print("Done")
