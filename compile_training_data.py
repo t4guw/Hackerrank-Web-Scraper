@@ -2,9 +2,32 @@ import re
 import numpy as np
 
 def get_dataset():
-    statements = get_pairs()[0]
-    labels = label_nested_for()
-    return ((np.array(statements[0:300]), np.array(labels[0:300])), (np.array(statements[300:-1]), np.array(labels[300:-1])))
+    pairs = get_pairs() # list of raw statements/solutions
+
+    #build_dictionary_file(pairs[0])
+
+    tokenized_states = []
+    
+    vocab = open('vocabulary.txt', 'r')
+    word_dict = {}
+    rank = 1
+    lines = vocab.readlines()
+
+    for word in lines:
+        word_dict[word[:-1]] = rank
+        rank += 1
+    raw_words = []
+    for statement in pairs[0]:
+        statement = re.split(r'[\.\!\?\,\:\;\(\)\s*]', statement.replace('\n', ''))
+        while '' in statement:
+            statement.remove('')
+        print(statement)
+        tokenized_states.append([word_dict[word.lower()] for word in statement])
+        raw_words.append(statement)
+    
+    labels = label_nested_for(pairs[1])
+
+    return ((np.array(tokenized_states[0:300]), np.array(labels[0:300])), (np.array(tokenized_states[300:-1]), np.array(labels[300:-1])))
 
 def get_pairs():
     file = open("algorithms_problems_hr.txt", "r")
@@ -67,12 +90,12 @@ def get_label(sol_lines):
             continue
     return 0
 
-def label_nested_for():
+def label_nested_for(solutions):
     pairs = get_pairs()
     label_list = []
     count = 0
     #print(get_label(pairs[1][16].splitlines()))
-    for sol_str in pairs[1]:
+    for sol_str in solutions:
         count += 1
         label_list.append(get_label(sol_str.splitlines()))
         
@@ -91,3 +114,17 @@ def build_stat_file():
         element = element.splitlines()
         
         file.write(element)
+
+def build_dictionary_file(statements):
+    word_dict = {}
+    for statement in statements:
+        #print(re.split(r'[\.\!\?\s*]', statement))
+        for word in re.split(r'[\.\!\?\,\:\;\(\)\s*]', statement.replace('\n', '')):
+            word = word.lower()
+            if word in word_dict:
+                word_dict[word] += 1
+            else:
+                word_dict[word] = 1
+    vocab = open('vocabulary.txt', 'w')
+    for word in sorted(word_dict, key=word_dict.get, reverse=True):
+        vocab.write(word + '\n')

@@ -6,41 +6,48 @@ import tensorflow_datasets as tfds
 import tensorflow_hub as hub
 import numpy as np
 
-print("Version: ", tf.__version__)
-print("Eager mode: ", tf.executing_eagerly())
-print("Hub version: ", hub.__version__)
-print("GPU is", "available" if tf.config.experimental.list_physical_devices("GPU") else "NOT AVAILABLE")
+# print("Version: ", tf.__version__)
+# print("Eager mode: ", tf.executing_eagerly())
+# print("Hub version: ", hub.__version__)
+# print("GPU is", "available" if tf.config.experimental.list_physical_devices("GPU") else "NOT AVAILABLE")
 
 full_data = compile_training_data.get_dataset()
+
 train_tuple = full_data[0]
 test_tuple = full_data[1]
 
+# train_dataset = tf.data.Dataset.from_tensor_slices((train_tuple[0], train_tuple[1]))
+lens = []
+for i in range(len(train_tuple[0])):
+    lens.append(len(train_tuple[0][i]))
+    print(train_tuple[0][i], '\n-----------\n')
+lens = np.array(lens)
 
-train_dataset = tf.data.Dataset.from_tensor_slices((train_tuple[0], train_tuple[1]))
-test_dataset = tf.data.Dataset.from_tensor_slices((test_tuple[0], test_tuple[1]))
+print(lens.max(), lens.min(), lens.mean(), len(lens > 256))
 
+train_data = keras.preprocessing.sequence.pad_sequences(train_tuple[0], value=0, padding='post', maxlen=300)
+test_data = keras.preprocessing.sequence.pad_sequences(test_tuple[0], value=0, padding='post', maxlen=300)
+
+print(train_data[0], train_data[-1])
 
 embedding = "https://tfhub.dev/google/tf2-preview/gnews-swivel-20dim/1"
-hub_layer = hub.KerasLayer(embedding, input_shape=[], dtype=tf.string, trainable=True)
+model = keras.Sequential()
+model.add(keras.layers.Embedding(4708, 16))
+model.add(keras.layers.GlobalAveragePooling1D())
+model.add(keras.layers.Dense(16, activation=tf.nn.relu))
+model.add(keras.layers.Dense(1, activation=tf.nn.sigmoid))
 
+model.summary()
 
-model = tf.keras.Sequential()
-model.add(hub_layer)
-model.add(tf.keras.layers.Dense(16, activation='relu'))
-model.add(tf.keras.layers.Dense(1, activation='sigmoid'))
+model.compile(optimizer='adam', loss=tf.keras.losses.BinaryCrossentropy(from_logits=True), metrics=['accuracy'])
 
-print(model.summary())
-
-model.compile(optimizer='adam',
-              loss='binary_crossentropy',
-              metrics=['accuracy'])
-
-history = model.fit(train_dataset.shuffle(len(train_tuple[0])).batch(300),
-                    epochs=20,
-                    validation_data=test_dataset.batch(129),
+history = model.fit(train_data, 
+                    train_tuple[1], 
+                    epochs=1000, 
+                    batch_size=32, 
+                    validation_data=(test_data, test_tuple[1]), 
                     verbose=1)
 
-results = model.evaluate(test_dataset.batch(300), verbose=2)
-
-for name, value in zip(model.metrics_names, results):
-    print("%s: %.3f" % (name, value))
+results = model.evaluate(test_data, test_tuple[1])
+print(results)
+exit()
