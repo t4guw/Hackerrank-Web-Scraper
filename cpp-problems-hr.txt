@@ -1,0 +1,2716 @@
+
+----------
+CPP.1
+easy
+----------
+PROBLEM STATEMENT:
+Objective 
+This is a simple challenge to help you practice printing to stdout. You may also want to complete Solve Me First in C++ before attempting this challenge.  
+
+
+
+We're starting out by printing the most famous computing phrase of all time! In the editor below, use either printf or cout to print the string [expression] to stdout. 
+----------
+TOP SOLUTION:
+----------
+#include <iostream>
+#include <cstdio>
+using namespace std;
+
+int main() {
+    printf("Hello, World!");
+    return 0;
+}
+
+----------
+====================
+----------
+CPP.2
+easy
+----------
+PROBLEM STATEMENT:
+Objective 
+In this challenge, we're practicing reading input from stdin and printing output to stdout. 
+
+
+
+In C++, you can read a single whitespace-separated token of input using cin, and print output to stdout using cout. For example, let's say we declare the following variables:
+
+[expression]
+[expression]
+
+
+
+and we want to use cin to read the input "High 5" from stdin. We can do this with the following code:
+
+[expression]
+
+
+
+The above code reads the first word ("High") from stdin and saves it as string [expression]. If we want to print these values to stdout, we write the following code:
+
+[expression]
+
+
+
+The above code prints the contents of string [expression]. Because we also want to ensure that nothing else is printed on this line, we end our line of output with a newline via endl. This results in the following output:
+
+High 5
+
+
+Task 
+Read [expression] numbers from stdin and print their sum to stdout.
+
+Note: If you plan on completing this challenge in C instead of C++, you'll need to use format specifiers with printf and scanf. 
+----------
+TOP SOLUTION:
+----------
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    int s = 0;
+    int t;
+    while(cin>>t){
+        s+=t;
+    }
+    cout<<s;
+    return 0;
+}
+
+----------
+====================
+----------
+CPP.3
+easy
+----------
+PROBLEM STATEMENT:
+Some C++ data types, their format specifiers, and their most common bit widths are as follows:
+
+
+Int ("%d"): 32 Bit integer
+Long ("%ld"): 64 bit integer
+Char ("%c"): Character type
+Float ("%f"): 32 bit real value
+Double ("%lf"): 64 bit real value
+
+
+
+
+Reading 
+To read a data type, use the following syntax:
+
+scanf("`format_specifier`", &val)
+
+
+For example, to read a character followed by a double:
+
+char ch;
+double d;
+scanf("%c %lf", &ch, &d);
+
+
+For the moment, we can ignore the spacing between format specifiers.
+
+
+
+Printing 
+To print a data type, use the following syntax:
+
+printf("`format_specifier`", val)
+
+
+For example, to print a character followed by a double:
+
+char ch = 'd';
+double d = 234.432;
+printf("%c %lf", ch, d);
+
+
+Note: You can also use cin and cout instead of scanf and printf; however, if you are taking a million numbers as input and printing a million lines, it is faster to use scanf and printf.
+----------
+TOP SOLUTION:
+----------
+#include <iostream>
+#include <cstdio>
+using namespace std;
+
+int main() {
+    int a;
+    long b;
+    long long c;
+    char d;
+    float e;
+    double f;
+    cin >> a >> b >> c >> d >> e >>f;
+    cout << a << endl << b << endl << c << endl << d << endl;
+    printf("%f\n%lf\n", e, f);
+    return 0;
+}
+
+----------
+====================
+----------
+CPP.4
+easy
+----------
+PROBLEM STATEMENT:
+if and else are two of the most frequently used conditionals in C/C++, and they enable you to execute zero or one conditional statement among many such dependent conditional statements. We use them in the following ways:
+
+
+if: This executes the body of bracketed code starting with [expression] evaluates to true.
+
+if (condition) {
+    statement1;
+    ...
+}
+
+if - else: This executes the body of bracketed code starting with [expression] evaluates to false. Note that only one of the bracketed code sections will ever be executed.
+
+if (condition) {
+    statement1;
+    ...
+}
+else {
+    statement2;
+    ...
+}
+
+if - else if - else: In this structure, dependent statements are chained together and the [expression] in the chain evaluates to false, then the body of bracketed code in the else block at the end is executed.
+
+if(first condition) {
+    ...
+}
+else if(second condition) {
+    ...
+}
+.
+.
+.
+else if((n-1)'th condition) {
+    ....
+}
+else {
+    ...
+}
+
+
+
+
+
+Given a positive integer denoting [expression], do the following:
+
+
+If [expression], etc.).
+If [expression], print Greater than 9.
+
+----------
+TOP SOLUTION:
+----------
+#include <iostream>
+#include <cstdio>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<string> arr;
+    arr.push_back("zero");
+    arr.push_back("one");
+    arr.push_back("two");
+    arr.push_back("three");
+    arr.push_back("four");
+    arr.push_back("five");
+    arr.push_back("six");
+    arr.push_back("seven");
+    arr.push_back("eight");
+    arr.push_back("nine");
+    int n;
+    cin >> n;
+    if(n > 9) cout << "Greater than 9" << endl;
+    else cout << arr[n] << endl;
+    return 0;
+}
+
+----------
+====================
+----------
+CPP.5
+easy
+----------
+PROBLEM STATEMENT:
+A for loop is a programming language statement which allows code to be repeatedly executed.  
+
+The syntax for this is
+
+for (  ;  ;  )
+    
+
+
+
+expression_1 is used for intializing variables which are generally used for controlling terminating flag for the loop.
+expression_2 is used to check for the terminating condition. If this evaluates to false, then the loop is terminated.
+expression_3 is generally used to update the flags/variables.
+
+
+A sample loop will be
+
+for(int i = 0; i < 10; i++) {
+    ...
+}
+
+----------
+TOP SOLUTION:
+----------
+#include <iostream>
+#include <cstdio>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<string> arr;
+    arr.push_back("zero");
+    arr.push_back("one");
+    arr.push_back("two");
+    arr.push_back("three");
+    arr.push_back("four");
+    arr.push_back("five");
+    arr.push_back("six");
+    arr.push_back("seven");
+    arr.push_back("eight");
+    arr.push_back("nine");
+    int a, b;
+    cin >> a >> b;
+    for(int i = a;i<=b;i++){
+        if(i > 9){
+            if(i % 2 == 0) cout << "even" << endl;
+            else cout << "odd" << endl;
+        }
+        else cout << arr[i] << endl;
+    }
+    return 0;
+}
+
+----------
+====================
+----------
+CPP.6
+easy
+----------
+PROBLEM STATEMENT:
+Functions are a bunch of statements glued together. A function is provided with zero or more arguments, and it executes the statements on it. Based on the return type, it either returns nothing (void) or something. 
+
+A sample syntax for a function is
+
+return_type function_name(arg_type_1 arg_1, arg_type_2 arg_2, ...) {
+    ...
+    ...
+    ...
+    [if return_type is non void]
+        return something of type `return_type`;
+}
+
+
+For example, a function to read four variables and return the sum of them can be written as
+
+int sum_of_four(int a, int b, int c, int d) {
+    int sum = 0;
+    sum += a;
+    sum += b;
+    sum += c;
+    sum += d;
+    return sum;
+}
+
+
+
+
+You have to write a function int max_of_four(int a, int b, int c, int d) which reads four arguments and returns the greatest of them.  
+
++= : Add and assignment operator. It adds the right operand to the left operand and assigns the result to the left operand.
+a += b is equivalent to a = a + b;
+
+----------
+TOP SOLUTION:
+----------
+#include <iostream>
+#include <cstdio>
+using namespace std;
+
+/*
+Add `int max_of_four(int a, int b, int c, int d)` here.
+*/
+
+int max_of_four(int a, int b, int c, int d){
+    return max(max(a, b), max(c,d));
+}
+int main() {
+    int a, b, c, d;
+    scanf("%d %d %d %d", &a, &b, &c, &d);
+    int ans = max_of_four(a, b, c, d);
+    printf("%d", ans);
+    
+    return 0;
+}
+
+
+----------
+====================
+----------
+CPP.7
+easy
+----------
+PROBLEM STATEMENT:
+A pointer in C is a way to share a memory address among different contexts (primarily functions). They are primarily used whenever a function needs to modify the content of a variable, of which it doesn't have ownership. 
+
+In order to access the memory address of a variable, [expression]. 
+
+This memory address is assigned to a pointer and can be shared among various functions. E.g. [expression]).
+
+void increment(int *v) {
+    (*v)++;
+}
+
+int main() {
+    int a;
+    scanf("%d", &a);
+    increment(&a);
+    printf("%d", a);
+    return 0;
+}  
+
+
+
+
+You have to complete the function void update(int *a,int *b), which reads two integers as argument, and sets [expression] with the absolute difference of them.
+
+
+[expression]
+[expression]
+
+----------
+TOP SOLUTION:
+----------
+#include <stdio.h>
+#include <iostream>
+#include <cmath>
+using namespace std;
+void update(int *a,int *b) {
+int c = *a;
+    *a = *a + *b;
+*b = fabs(c-*b);
+	
+}
+
+int main() {
+    int a, b;
+    int *pa = &a, *pb = &b;
+    
+    scanf("%d %d", &a, &b);
+    update(pa, pb);
+    printf("%d\n%d", a, b);
+
+    return 0;
+}
+
+----------
+====================
+----------
+CPP.8
+easy
+----------
+PROBLEM STATEMENT:
+An array is a series of elements of the same type placed in contiguous memory locations that can be individually referenced by adding an index to a unique identifier.
+
+Declaration:
+
+int arr[10]; //Declares an array named arr of size 10, i.e; you can store 10 integers.
+
+
+Accessing elements of an array:
+
+Indexing in arrays starts from 0.So the first element is stored at arr[0],the second element at arr[1]...arr[9]
+
+
+You'll be given an array of [expression] integers and you have to print the integers in the reverse order.
+----------
+TOP SOLUTION:
+----------
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    int n;
+    cin >> n;
+    int arr[n];
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
+    for (int i = n - 1; i >= 0; i--)
+        cout << arr[i] << ' ';
+    return 0;
+}
+
+----------
+====================
+----------
+CPP.9
+easy
+----------
+PROBLEM STATEMENT:
+Consider an [expression] varies from array to array). See the Explanation section below for a diagram.
+
+Given [expression] on a new line.
+
+Click here to know more about how to create variable sized arrays in C++.
+----------
+TOP SOLUTION:
+----------
+    int n, q; cin >> n >> q;
+    int **v = new int*[n];
+    for(int j=0;j<n;j++){
+        int k; cin >> k;
+        v[j] = new int[k];
+        for(int i=0;i<k;i++){
+            int x; cin >> x;
+            v[j][i] = x;
+        }
+    }
+    for(int i=0;i<q;i++){
+        int a, b; cin >> a >> b;
+        cout << v[a][b]<<endl;
+    }
+	return 0;
+}
+
+----------
+====================
+----------
+CPP.10
+medium
+----------
+PROBLEM STATEMENT:
+We have defined our own markup language HRML. In HRML, each element consists of a starting and ending tag, and there are attributes associated with each tag. Only starting tags can have attributes. We can call an attribute by referencing the tag, followed by a tilde, '~' and the name of the attribute. The tags may also be nested.    
+
+The opening tags follow the format: 
+
+
+
+The closing tags follow the format:
+
+  
+
+For example:   
+
+
+
+
+
+
+
+The attributes are referenced as:
+
+tag1~value  
+tag1.tag2~name
+
+
+You are given the source code in HRML format consisting of [expression] queries. Each query asks you to print the value of the attribute specified. Print "Not Found!" if there isn't any such attribute.
+----------
+TOP SOLUTION:
+----------
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <map>
+using namespace std;
+
+vector<string> tag_stack;
+map<string, string> attrs;
+    
+
+void insert_attr(string & name, string & val) {
+    string full;
+    for(string & str : tag_stack)
+        full += str + ".";
+    full.pop_back();
+    full += "~" + name;
+    attrs[full] = val;
+    
+}
+
+int main() {
+    int n, q;
+    cin >> n >> q;
+    
+    for(int i = 0; i < n; ++i) {
+        char c; cin >> c;
+        if(cin.peek() == '/') { // close
+            string cn; cin >> cn;
+            tag_stack.pop_back();
+        }
+        else { //open'
+            string name;
+            cin >> name;
+            if(name.back() == '>') { //no attrs
+                name.pop_back();
+                tag_stack.push_back(name);
+            }
+            else {
+                tag_stack.push_back(name);
+                 
+                for(;;) { 
+                    string attr_name, attr_val, eq;
+                    cin >> attr_name >> eq >> attr_val;
+                    if(attr_val.back() == '>') { //last attr
+                        attr_val.pop_back();
+                        attr_val.pop_back();
+                        attr_val = attr_val.substr(1);
+                        insert_attr(attr_name, attr_val);
+                        break;
+                    }
+                    else {
+                        attr_val.pop_back();
+                        attr_val = attr_val.substr(1);
+                        insert_attr(attr_name, attr_val);
+                    }
+                }
+            }
+                
+        }
+    }
+    
+    for(int i = 0; i < q; ++i) {
+        string quer;
+        cin >> quer;
+        if(attrs.find(quer) != attrs.end())
+            cout << attrs[quer] << endl;
+        else 
+            cout << "Not Found!" << endl;
+    }
+    
+    
+    return 0;
+}
+
+----------
+====================
+----------
+CPP.11
+easy
+----------
+PROBLEM STATEMENT:
+stringstream is a stream class to operate on strings. It basically implements input/output operations on memory (string) based streams. stringstream can be helpful in different type of parsing. The following operators/functions are commonly used here
+
+
+Operator  Extracts formatted data.
+Operator  Inserts formatted data.
+Method str() Gets the contents of underlying string device object.
+Method str(string) Sets the contents of underlying string device object.
+
+
+Its header file is sstream.  
+
+One common use of this class is to parse comma-separated integers from a string (e.g., "23,4,56").
+
+stringstream ss("23,4,56");
+char ch;
+int a, b, c;
+ss  a  ch  b  ch  c;  // a = 23, b = 4, c = 56
+
+
+You have to complete the function vector parseInts(string str). str will be a string consisting of comma-separated integers, and you have to return a vector of int representing the integers.
+
+Note If you want to know how to push elements in a vector, solve the first problem in the STL chapter.
+----------
+TOP SOLUTION:
+----------
+#include <bits/stdc++.h>
+using namespace std;
+
+vector<int> parseInts(string str) {
+    stringstream ss(str);
+    vector<int> result;
+    char ch;
+    int tmp;
+    while(ss >> tmp) {
+        result.push_back(tmp);
+        ss >> ch;
+    }
+    return result;
+}
+
+int main() {
+    string str;
+    cin >> str;
+    vector<int> integers = parseInts(str);
+    for(int i = 0; i < integers.size(); i++)
+        cout << integers[i] << "\n";
+    return 0;
+}
+----------
+====================
+----------
+CPP.12
+easy
+----------
+PROBLEM STATEMENT:
+C++ provides a nice alternative data type to manipulate strings, and the data type is conveniently called string. Some of its widely used features are the following:
+
+
+Declaration:
+
+string a = "abc";
+
+Size: 
+
+int len = a.size();
+
+Concatenate two strings:
+
+string a = "abc";
+string b = "def";
+string c = a + b; // c = "abcdef".
+
+Accessing [expression] element:
+
+string s = "abc";
+char   c0 = s[0];   // c0 = 'a'
+char   c1 = s[1];   // c1 = 'b'
+char   c2 = s[2];   // c2 = 'c'
+
+s[0] = 'z';         // s = "zbc"
+
+
+
+P.S.: We will use cin/cout to read/write a string.
+----------
+TOP SOLUTION:
+----------
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string a, b;
+    cin >> a >> b;
+    cout << a.length() << " " << b.length() << endl;
+    cout << a << b << endl;
+    swap(a[0], b[0]);
+    cout << a << " " << b << endl;
+    return 0;
+}
+
+----------
+====================
+----------
+CPP.13
+easy
+----------
+PROBLEM STATEMENT:
+struct is a way to combine multiple fields to represent a composite data structure, which further lays the foundation for Object Oriented Programming. For example, we can store details related to a student in a struct consisting of his age (int), first_name (string), last_name (string) and standard (int). 
+
+struct can be represented as
+
+struct NewType {
+    type1 value1;
+    type2 value2;
+    .
+    .
+    .
+    typeN valueN;
+};
+
+
+You have to create a struct, named Student, representing the student's details, as mentioned above, and store the data of a student.
+----------
+TOP SOLUTION:
+----------
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+struct Student{
+    int age, standard;
+    string first_name, last_name;
+} st;
+
+int main() {
+    Student st;
+    
+    cin >> st.age >> st.first_name >> st.last_name >> st.standard;
+    cout << st.age << " " << st.first_name << " " << st.last_name << " " << st.standard;
+    
+    return 0;
+}
+
+----------
+====================
+----------
+CPP.14
+easy
+----------
+PROBLEM STATEMENT:
+Classes in C++ are user defined types declared with keyword class that has data and functions . Although classes and structures have the same type of functionality, there are some basic differences. The data members of a class are private by default and the members of a structure are public by default. Along with storing multiple data in a common block, it also assigns some functions (known as methods) to manipulate/access them. It serves as the building block of Object Oriented Programming.  
+
+It also has access specifiers, which restrict the access of member elements. The primarily used ones are the following:
+
+
+public: Public members (variables, methods) can be accessed from anywhere the code is visible.
+private: Private members can be accessed only by other member functions, and it can not be accessed outside of class.
+
+
+Class can be represented in the form of
+
+class ClassName {
+    access_specifier1:
+        type1 val1;
+        type2 val2;
+        ret_type1 method1(type_arg1 arg1, type_arg2 arg2,...)
+        ...
+    access_specifier2:
+        type3 val3;
+        type4 val4;
+        ret_type2 method2(type_arg3 arg3, type_arg4 arg4,...)
+        ...
+};
+
+
+It's a common practice to make all variables private, and set/get them using public methods. For example:
+
+class SampleClass {
+    private:
+        int val;
+    public:
+        void set(int a) {
+            val = a;
+        }
+        int get() {
+            return val;
+        }
+};
+
+
+
+
+We can store details related to a student in a class consisting of his age (int), first_name (string), last_name (string) and standard (int). 
+
+You have to create a class, named Student, representing the student's details, as mentioned above, and store the data of a student. Create setter and getter functions for each element; that is, the class should at least have following functions:
+
+
+get_age, set_age
+get_first_name, set_first_name
+get_last_name, set_last_name
+get_standard, set_standard
+
+
+Also, you have to create another method to_string() which returns the string consisting of the above elements, separated by a comma(,). You can refer to stringstream for this.
+----------
+TOP SOLUTION:
+----------
+#include <iostream>
+#include <sstream>
+using namespace std;
+
+/*
+Enter code for class Student here.
+Read statement for specification.
+*/
+class Student{
+    public:
+        int age, standard;
+        string first_name, last_name;
+        void set_age(int a){
+            age = a;
+        }
+        void set_first_name(string a){
+            first_name = a;
+        }
+        void set_last_name(string a){
+            last_name = a;
+        }
+        void set_standard(int a){
+            standard = a;
+        }
+        int get_age(){
+            return age;
+        }
+        string get_first_name(){
+            return first_name;
+        }
+        string get_last_name(){
+            return last_name;
+        }
+        int get_standard(){
+            return standard;
+        }
+	   string t_string(){
+           string s = "";
+           s+=to_string(age);
+           s+=",";
+           s+=first_name;
+           s+=",";
+           s+=last_name;
+           s+=",";
+           s+=to_string(standard);
+           return s;
+	   }
+};
+
+int main() {
+    int age, standard;
+    string first_name, last_name;
+    
+    cin >> age >> first_name >> last_name >> standard;
+    
+    Student st;
+    st.set_age(age);
+    st.set_standard(standard);
+    st.set_first_name(first_name);
+    st.set_last_name(last_name);
+    
+    cout << st.get_age() << "\n";
+    cout << st.get_last_name() << ", " << st.get_first_name() << "\n";
+    cout << st.get_standard() << "\n";
+    cout << "\n";
+    cout << st.t_string();
+    
+    return 0;
+}
+----------
+====================
+----------
+CPP.15
+easy
+----------
+PROBLEM STATEMENT:
+A class defines a blueprint for an object. We use the same syntax to declare objects of a class as we use to declare variables of other basic types. For example:
+
+Box box1;          // Declares variable box1 of type Box
+Box box2;          // Declare variable box2 of type Box
+
+
+Kristen is a contender for valedictorian of her high school. She wants to know how many students (if any) have scored higher than her in the [expression] exams given during this semester.
+
+Create a class named [expression] with the following specifications:
+
+
+An instance variable named [expression] exam scores.
+A void input() function that reads [expression].
+An int calculateTotalScore() function that returns the sum of the student's scores.
+
+----------
+TOP SOLUTION:
+----------
+class Student {
+    int totalScore = 0;
+    public:
+    void Input() {
+        for (int i = 0; i < 5; i++) {
+            int x;
+            cin >> x;
+            totalScore += x;
+        }
+    }
+    int CalculateTotalScore() {
+        return totalScore;
+    }   
+};
+----------
+====================
+----------
+CPP.16
+easy
+----------
+PROBLEM STATEMENT:
+Design a class named Box whose dimensions are integers and private to the class. The dimensions are labelled: length [expression]. 
+
+The default constructor of the class should initialize [expression]. 
+
+The parameterized constructor Box(int length, int breadth, int height) should initialize Box's [expression] to length, breadth and height.
+
+The copy constructor Box[expression], respectively. 
+
+Apart from the above, the class should have [expression] functions:  
+
+
+int getLength()  - Return box's length  
+int getBreadth() - Return box's breadth  
+int getHeight()  - Return box's height    
+long long CalculateVolume() - Return the volume of the box
+
+
+Overload the operator [expression]  if:
+
+
+[expression]  
+[expression]  
+[expression]  
+
+
+Overload operator [expression] for the class Box(). 
+If [expression] is an object of class Box:
+
+[expression] on a single line separated by spaces.
+
+Constraints 
+
+[expression] 
+Two boxes being compared using the [expression] operator will not have all three dimensions equal.
+----------
+TOP SOLUTION:
+----------
+class Box {
+	int l, b, h;
+public:
+	Box() : l(0), b(0), h(0) { BoxesCreated++; }
+	Box(int length, int breadth, int height) : l(length), b(breadth), h(height) { BoxesCreated++; }
+	Box(const Box& b) : l(b.l), b(b.b), h(b.h) { BoxesCreated++; }
+	int getLength() const {
+		return l;
+	}
+	int getBreadth() const {
+		return b;
+	}
+	int getHeight() const {
+		return h;
+	}
+	long long CalculateVolume() const {
+		return 1LL * l * b * h;
+	}
+	~Box() {
+		BoxesDestroyed++;
+	}
+	bool operator<(const Box& another) const {
+		if (l != another.l) {
+			return l < another.l;
+		}
+		if (b != another.b) {
+			return b < another.b;
+		}
+		return h < another.h;
+	}
+	void output(ostream& out) const {
+		out << l << " " << b << " " << h;
+	}
+};
+
+ostream& operator<<(ostream& out, Box b) {
+	b.output(out);
+	return out;
+}
+----------
+====================
+----------
+CPP.17
+medium
+----------
+PROBLEM STATEMENT:
+You inherited a piece of code that performs username validation for your company's website. The existing function works reasonably well, but it throws an exception when the username is too short. Upon review, you realize that nobody ever defined the exception. 
+
+The inherited code is provided for you in the locked section of your editor. Complete the code so that, when an exception is thrown, it prints Too short: n (where [expression] is the length of the given username). 
+----------
+TOP SOLUTION:
+----------
+/* Define the exception here */
+class BadLengthException{
+    public:
+    int x;
+    BadLengthException(int n) {
+        x=n;
+    }
+     int what() const throw()
+  {
+    return x;
+  }
+};
+----------
+====================
+----------
+CPP.18
+medium
+----------
+PROBLEM STATEMENT:
+Your friend set up a small computational server that performs complex calculations. 
+It has a function that takes [expression] large numbers as its input and returns a numeric result. Unfortunately, there are various exceptions that may occur during execution.
+
+Complete the code in your editor so that it prints appropriate error messages, should anything go wrong. The expected behavior is defined as follows:
+
+
+If the compute function runs fine with the given arguments, then print the result of the function call.  
+If it fails to allocate the memory that it needs, print Not enough memory.  
+If any other standard C++ exception occurs, print Exception: S where [expression] is the exception's error message.  
+If any non-standard exception occurs, print Other Exception.
+
+----------
+TOP SOLUTION:
+----------
+		try {
+            cout << Server::compute(A, B) << '\n';
+        }
+        catch (const std::bad_alloc&) {
+            cout << "Not enough memory\n";
+        }
+        catch (const std::exception& e) {
+            cout << "Exception: " << e.what() << '\n';
+        }
+        catch (...) {
+            cout << "Other Exception\n";
+        }
+----------
+====================
+----------
+CPP.19
+medium
+----------
+PROBLEM STATEMENT:
+This problem is to get you familiar with virtual functions. Create three classes Person, Professor and Student. The class Person should have data members name and age. The classes Professor and Student should inherit from the class Person.
+
+The class Professor should have two integer members: publications and cur_id. There will be two member functions: getdata and putdata. The function getdata should get the input from the user: the name, age and publications of the professor. The function putdata should print the name, age, publications and the cur_id of the professor.
+
+The class Student should have two data members: marks, which is an array of size [expression] subjects. The function putdata should print the name, age, sum of the marks and the cur_id of the student.
+
+For each object being created of the Professor or the Student class, sequential id's should be assigned to them starting from [expression].
+
+Solve this problem using virtual functions, constructors and static variables. You can create more data members if you want.
+
+Note: Expand the main function to look at how the input is being handled.
+----------
+TOP SOLUTION:
+----------
+
+#include <string>
+
+int currentIDStudent= 0;
+int currentIDProff = 0;
+
+
+class Person
+{
+public:
+	Person();
+	~Person();
+
+	string name;
+	int age;
+	virtual void getdata() = 0;
+	virtual void putdata() = 0;
+
+private:
+
+};
+
+Person::Person()
+{
+	age = 0;
+	name = "";
+
+}
+
+Person::~Person()
+{
+}
+class Professor : public Person
+{
+public:
+	Professor();
+	~Professor();
+	int publications;
+	int id;
+
+
+	void getdata()
+	{
+		std::cin >> name;
+		std::cin >> age;
+		std::cin >> publications;
+
+
+	}
+	void putdata()
+	{
+		std::cout << name << " " << age << " " << publications << " " << id << "\n";
+
+
+	}
+private:
+
+};
+
+Professor::Professor()
+{
+	id = ++currentIDProff;
+}
+
+Professor::~Professor()
+{
+}
+
+class Student : public Person
+{
+public:
+	Student();
+	~Student();
+	int marks[6];
+	int id;
+	void getdata()
+	{
+		std::cin >> name;
+		std::cin >> age;
+		for (int i = 0; i < 6; i++)
+		{
+
+			std::cin >> marks[i];
+		}
+
+	}
+	void putdata()
+	{
+		std::cout << name << " " << age << " ";
+
+		int sum = 0;
+		for (auto& num : marks)
+		sum += num;
+
+		std::cout << sum << ' ' <<  id << endl;
+	}
+private:
+
+};
+
+Student::Student()
+{
+	id = ++currentIDStudent;
+
+}
+
+Student::~Student()
+{
+}
+----------
+====================
+----------
+CPP.20
+hard
+----------
+PROBLEM STATEMENT:
+Abstract base classes in C++ can only be used as base classes. Thus, they are allowed to have virtual member functions without definitions.
+
+A cache is a component that stores data so future requests for that data can be served faster. The data stored in a cache might be the results of an earlier computation, or the duplicates of data stored elsewhere. A cache hit occurs when the requested data can be found in a cache, while a cache miss occurs when it cannot. Cache hits are served by reading data from the cache which is faster than recomputing a result or reading from a slower data store. Thus, the more requests that can be served from the cache, the faster the system performs.
+
+One of the popular cache replacement policies is: "least recently used" (LRU). It discards the least recently used items first.
+
+For example, if a cache with a capacity to store 5 keys has the following state(arranged from most recently used key to least recently used key) -
+
+5 3 2 1 4
+
+
+Now, If the next key comes as 1(which is a cache hit), then the cache state in the same order will be -
+
+1 5 3 2 4
+
+
+Now, If the next key comes as 6(which is a cache miss), then the cache state in the same order will be -
+
+6 1 5 3 2
+
+
+You can observe that 4 has been discarded because it was the least recently used key and since the capacity of cache is 5, it could not be retained in the cache any longer.
+
+Given an abstract base class Cache with member variables and functions: 
+
+mp - Map the key to the node in the linked list
+cp - Capacity
+tail - Double linked list tail pointer
+head - Double linked list head pointer
+set() - Set/insert the value of the key, if present, otherwise add the key as the most recently used key. If the cache has reached its capacity, it should replace the least recently used key with a new key.
+get() - Get the value (will always be positive) of the key if the key exists in the cache, otherwise return -1.
+
+You have to write a class LRUCache which extends the class Cache and uses the member functions and variables to implement an LRU cache.
+----------
+TOP SOLUTION:
+----------
+class LRUCache : public Cache {
+public:
+    LRUCache(size_t capacity)
+    {
+        cp = capacity;
+        tail = 0;
+        head = 0;
+    }
+    
+    ~LRUCache() {
+        while(tail) {
+            auto node = tail;
+            tail = tail->prev;
+            delete node;
+        }
+    }
+    
+    // Set/insert the value off the key, if present, otherwise
+    // add the key as the most recently used key. If the cache
+    // has reached its capacity, it should replace the least
+    // recently used key with a new key.
+    void set(int key, int value) {
+        Node* node;
+        auto it = mp.find(key);
+        if(mp.end() == it) {
+            if(mp.size() < cp) {
+                node = new Node(key, value);
+                if(tail) {
+                    tail->next = node;
+                    node->prev = tail;
+                } else {
+                    tail = node;
+                    head = node;
+                }
+            } else {
+                node = tail;
+                mp.erase(tail->value);
+            }
+            mp.insert(make_pair(key, node));
+        } else {
+            node = it->second;
+        }
+        node->key = key;
+        node->value = value;
+        set_mru(node);
+    }
+    
+    // Get the value (will always be positive) of the key
+    // if the key exists in the cache and then make that key
+    // as the most recently used key; otherwise, return -1.
+    int get(int key) {
+        auto it = mp.find(key);
+        if(mp.end() == it)
+            return -1;
+
+        auto node = it->second;
+        set_mru(node);
+        return node->value;
+    }
+
+private:
+    void set_mru(Node* node) {
+        if(node->next) {
+            node->next->prev = node->prev;
+        }
+        if(node->prev) {
+            node->prev->next = node->next;
+        }
+        if(tail == node)
+            tail = node->prev;
+        node->prev = 0;
+        node->next = head;
+        head = node;
+    }
+};
+----------
+====================
+----------
+CPP.21
+easy
+----------
+PROBLEM STATEMENT:
+You are given [expression] integers and print the sorted order.
+Store the [expression] integers in a vector.Vectors are sequence containers representing arrays that can change in size.
+
+
+Declaration:
+
+vectorv; (creates an empty vector of integers)
+
+Size:
+
+int size=v.size();
+
+Pushing an integer into a vector:
+
+v.push_back(x);(where x is an integer.The size increases by 1 after this.)
+
+Popping the last element from the vector:
+
+v.pop_back(); (After this the size decreases by 1)
+
+Sorting a vector:
+
+sort(v.begin(),v.end()); (Will sort all the elements in the vector)
+
+
+
+To know more about vectors, Click Here
+----------
+TOP SOLUTION:
+----------
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */ 
+    int n=0,a=0;
+    vector<int> v;
+    cin>>n;
+    for(int i=0;i<n;i++) {
+        cin>>a;
+        v.push_back(a);
+    }
+    sort(v.begin(),v.end());
+    for(int i=0;i<n;i++) {
+        cout<<v[i];
+        cout<<" ";
+    }
+    return 0;
+}
+
+----------
+====================
+----------
+CPP.22
+easy
+----------
+PROBLEM STATEMENT:
+You are provided with a vector of [expression] integers denoting a range of the positions in the vector. The elements which fall under that range should be removed. The second query is performed on the updated vector which we get after performing the first query.
+The following are some useful vector functions:
+
+
+erase(int position):
+
+Removes the element present at position.  
+Ex: v.erase(v.begin()+4); (erases the fifth element of the vector v)
+
+erase(int start,int end):
+
+Removes the elements in the range from start to end inclusive of the start and exclusive of the end.
+Ex:v.erase(v.begin()+2,v.begin()+5);(erases all the elements from the third element to the fifth element.)
+
+
+----------
+TOP SOLUTION:
+----------
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    vector <long long int> v;
+    long long n,x,a,b;
+    cin>>n;
+    for(long long i=0;i<n;i++){
+        cin>>x;
+        v.push_back(x);
+    }
+    cin>>x>>a>>b;
+    v.erase(v.begin()+x-1);
+    v.erase(v.begin()+a-1,v.begin()+b-1);
+    cout<<v.size()<<endl;
+    for(long long i=0;i<v.size();i++)
+        cout<<v[i]<<" ";
+    return 0;
+}
+
+----------
+====================
+----------
+CPP.23
+easy
+----------
+PROBLEM STATEMENT:
+You are given [expression] queries. In each query, you will be given an integer and you have to tell whether that integer is present in the array. If so, you have to tell at which index it is present and if it is not present, you have to tell the index at which the smallest integer that is just greater than the given number is present.
+
+Lower bound is a function that can be used with a sorted vector. Learn how to use lower bound to solve this problem by Clicking Here.
+----------
+TOP SOLUTION:
+----------
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */  
+    vector<long long int> v;
+    long long n,q,x;
+    cin>>n;
+    for(long long i=0;i<n;i++){
+        cin>>q;
+        v.push_back(q);
+    }
+    cin>>q;
+    vector<long long>::iterator low,up;
+    while(q--){
+        cin>>x;
+        if(binary_search(v.begin(),v.end(),x)){
+            low=lower_bound(v.begin(),v.end(),x);
+            cout<<"Yes "<<(low-v.begin()+1)<<endl;
+        }
+        else{
+            up=upper_bound(v.begin(),v.end(),x);
+            cout<<"No "<<(up-v.begin()+1)<<endl;
+        }
+    }
+    return 0;
+}
+----------
+====================
+----------
+CPP.24
+easy
+----------
+PROBLEM STATEMENT:
+Sets are a part of the C++ STL. Sets are containers that store unique elements following a specific order. Here are some of the frequently used member functions of sets:
+
+
+Declaration:
+
+sets; //Creates a set of integers.
+
+Size:
+
+int length=s.size(); //Gives the size of the set.
+
+Insert:
+
+s.insert(x); //Inserts an integer x into the set s.
+
+Erasing an element:
+
+s.erase(val); //Erases an integer val from the set s.
+
+Finding an element:
+
+set::iterator itr=s.find(val); //Gives the iterator to the element val if it is found otherwise returns s.end() .
+Ex: set::iterator itr=s.find(100); //If 100 is not present then it==s.end().
+
+
+To know more about sets click Here.  Coming to the problem, you will be given [expression] queries. Each query is of one of the following three types:
+[expression] to the set.
+[expression] is not present in the set, then do nothing).
+[expression] is present in the set, then print "Yes"(without quotes) else print "No"(without quotes).
+
+----------
+TOP SOLUTION:
+----------
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <set>
+using namespace std;
+
+
+int main() {
+    int c,t,n;
+    scanf("%d",&n);
+    set<int> ns;
+    while(n--) {
+        scanf("%d %d",&c,&t);
+        switch(c) {
+            case 1:
+                ns.insert(t);
+                break;
+            case 2:
+                ns.erase(t);
+                break;
+            case 3:
+                if (ns.find(t)!=ns.end())
+                    cout << "Yes"<<endl;
+                else
+                    cout <<"No"<<endl;
+                break;
+            default:
+                cout<<"invalid switch value: "<<c<<endl;
+                
+        }
+    }
+    
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    return 0;
+}
+
+----------
+====================
+----------
+CPP.25
+easy
+----------
+PROBLEM STATEMENT:
+Maps are a part of the C++ STL.Maps are associative containers that store elements formed by a combination of a key value and a mapped value, following a specific order.The mainly used member functions of maps are:
+
+
+Map Template:
+
+std::map 
+
+Declaration:
+
+mapm; //Creates a map m where key_type is of type string and data_type is of type int.
+
+Size:
+
+int length=m.size(); //Gives the size of the map.
+
+Insert:
+
+m.insert(make_pair("hello",9)); //Here the pair is inserted into the map where the key is "hello" and the value associated with it is 9.
+
+Erasing an element:
+
+m.erase(val); //Erases the pair from the map where the key_type is val.
+
+Finding an element:
+
+map::iterator itr=m.find(val); //Gives the iterator to the element val if it is found otherwise returns m.end() .
+Ex: map::iterator itr=m.find("Maps"); //If Maps is not present as the key value then itr==m.end().
+
+Accessing the value stored in the key:
+
+To get the value stored of the key "MAPS" we can do m["MAPS"] or we can get the iterator using the find function and then by itr-second we can access the value.
+
+
+
+To know more about maps click Here.
+
+You are appointed as the assistant to a  teacher in a school and  she is correcting the answer sheets of the students.Each student can have multiple answer sheets.So the teacher has [expression] queries:
+
+[expression].
+
+[expression].
+
+[expression].)
+----------
+TOP SOLUTION:
+----------
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <set>
+#include <map>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    int n;
+    cin >> n;
+    
+    map<string, int> m;
+    
+    while (n--) {
+        int t;
+        cin >> t;
+        
+        string s;
+        cin >> s;
+        
+        if (t == 1) {
+            int a;
+            cin >> a;
+            
+            m[s] += a;
+        } else if (t == 2) {
+            m[s] = 0;
+        } else {
+            cout << m[s] << "\n";
+        }
+    }
+    
+    return 0;
+}
+----------
+====================
+----------
+CPP.26
+easy
+----------
+PROBLEM STATEMENT:
+Your manager gave you a text file with many lines of numbers to format and print. For each row of [expression] space-separated doubles, format and print the numbers using the specifications in the Output Format section below.
+----------
+TOP SOLUTION:
+----------
+		/* Enter your code here */   
+        typedef long long llint;
+        llint AA = llint(A);
+        printf("0x%llx\n", AA);
+
+        char tmp[100];
+        sprintf(tmp, "%s%.2f", B >= 0? "+": "-", B);
+        string sb(tmp);
+
+        for (int i = 0; i + sb.size() < 15; i++) {
+            printf("_");
+        }
+        puts(tmp);
+
+        printf("%.9E\n", C);
+----------
+====================
+----------
+CPP.27
+medium
+----------
+PROBLEM STATEMENT:
+Double ended queue or Deque(part of C++ STL) are sequence containers with dynamic sizes that can be expanded or contracted on both ends (either its front or its back). The member functions of deque that are mainly used are:
+
+
+Deque Template:
+
+std::deque
+
+Declaration:
+
+deque mydeque; //Creates a double ended queue of deque of int type
+
+Size
+
+int length = mydeque.size(); //Gives the size of the deque
+
+Push
+
+mydeque.push_back(1); //Pushes element at the end
+mydeque.push_front(2); //Pushes element at the beginning
+
+Pop
+
+mydeque.pop_back(); //Pops element from the end
+mydeque.pop_front(); //Pops element from the beginning
+
+Empty
+
+mydeque.empty() //Returns a boolean value which tells whether the deque is empty or not
+
+
+
+To know more about deque, click here
+
+Given a set of arrays of size [expression] for each of the given arrays.
+----------
+TOP SOLUTION:
+----------
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+#include <set>
+#include <map>
+#include <queue>
+#include <iostream>
+#include <sstream>
+#include <cstdio>
+#include <cmath>
+#include <ctime>
+#include <cstring>
+#include <cctype>
+#include <cassert>
+#include <limits>
+#include <functional>
+#define rep(i,n) for(int (i)=0;(i)<(int)(n);++(i))
+#define rer(i,l,u) for(int (i)=(int)(l);(i)<=(int)(u);++(i))
+#define reu(i,l,u) for(int (i)=(int)(l);(i)<(int)(u);++(i))
+#if defined(_MSC_VER) || __cplusplus > 199711L
+#define aut(r,v) auto r = (v)
+#else
+#define aut(r,v) __typeof(v) r = (v)
+#endif
+#define each(it,o) for(aut(it, (o).begin()); it != (o).end(); ++ it)
+#define all(o) (o).begin(), (o).end()
+#define pb(x) push_back(x)
+#define mp(x,y) make_pair((x),(y))
+#define mset(m,v) memset(m,v,sizeof(m))
+#define INF 0x3f3f3f3f
+#define INFL 0x3f3f3f3f3f3f3f3fLL
+using namespace std;
+typedef vector<int> vi; typedef pair<int,int> pii; typedef vector<pair<int,int> > vpii; typedef long long ll;
+template<typename T, typename U> inline void amin(T &x, U y) { if(y < x) x = y; }
+template<typename T, typename U> inline void amax(T &x, U y) { if(x < y) x = y; }
+
+struct Val {
+	int x;
+	Val() : x(-INF) {}
+	Val(int x_) : x(x_) {}
+	Val &operator+=(const Val &that) {
+		amax(x, that.x);
+		return *this;
+	}
+};
+
+struct TwoStackQueue {
+	typedef Val Sum;
+
+	//queue = reverse(vals2) ++ vals1
+	vector<Val> vals1, vals2;
+	vector<Sum> sums1, sums2;
+
+	pair<Sum,Sum> getsumparts() const {
+		Sum s1 = sums1.empty() ? Sum() : sums1.back();
+		Sum s2 = sums2.empty() ? Sum() : sums2.back();
+		return make_pair(s1, s2);
+	}
+	void push(const Val &v) {
+		Sum s = !sums1.empty() ? sums1.back() : Sum();
+		s += v;
+		vals1.push_back(v);
+		sums1.push_back(s);
+	}
+	void pop() {
+		ensure();
+		if(!vals2.empty()) {
+			vals2.pop_back();
+			sums2.pop_back();
+		}
+	}
+
+private:
+	void ensure() {
+		if(!vals2.empty()) return;
+		reverse(all(vals1));
+		vals2.swap(vals1);
+		sums1.clear();
+		Sum s;
+		sums2.resize(vals2.size());
+		for(size_t i = 0; i < vals2.size(); ++ i) {
+			s += vals2[i];
+			sums2[i] = s;
+		}
+	}
+};
+
+int main() {
+	int T;
+	scanf("%d", &T);
+	rep(ii, T) {
+		int N, K;
+		scanf("%d%d", &N, &K);
+		vector<int> A(N);
+		for(int i = 0; i < N; ++ i)
+			scanf("%d", &A[i]);
+		TwoStackQueue q;
+		rep(i, K)
+			q.push(A[i]);
+		vector<int> ans(N - K + 1);
+		for(int i = K;; ++ i) {
+			pair<Val,Val> p = q.getsumparts();
+			ans[i - K] = max(p.first.x, p.second.x);
+			if(i == N) break;
+			q.pop();
+			q.push(A[i]);
+		}
+		for(int i = 0; i < N - K + 1; ++ i) {
+			if(i != 0) putchar(' ');
+			printf("%d", ans[i]);
+		}
+		puts("");
+	}
+	return 0;
+}
+
+----------
+====================
+----------
+CPP.28
+easy
+----------
+PROBLEM STATEMENT:
+One of the important topics of Object Oriented Programming is Inheritance. Inheritance allows us to define a class in terms of another class, which allows us in the reusability of the code.Check out the code below:
+
+class Triangle{
+    public:
+        void triangle(){
+            cout<<"I am a triangle\n";
+        }
+};
+
+
+The class Triangle has a function called triangle(). Now we create a class derived from the base class Triangle called Isosceles.
+
+class Isosceles : public Triangle{
+    public:
+        void isosceles(){
+            cout<<"I am an isosceles triangle\n";
+        }
+};
+
+
+Now we can create a derived class object and use it to access the functions of the base class.
+
+int main(){
+    Isosceles isc;
+    isc.isosceles();
+    isc.triangle();
+    return 0;
+}
+
+
+This code will print:
+
+I am an isosceles triangle
+I am a triangle
+
+
+Now write a function in Isosceles class such that the output is as given below.
+----------
+TOP SOLUTION:
+----------
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+class Triangle{
+    public:
+       void triangle(){
+           cout<<"I am a triangle\n";
+       }
+};
+class Isosceles : public Triangle{
+    public:
+       void isosceles(){
+          cout<<"I am an isosceles triangle\n";
+       }
+    
+       void description(){
+          cout<<"In an isosceles triangle two sides are equal\n";
+       }
+};
+int main(){
+    Isosceles isc;
+    isc.isosceles();
+     isc.description();
+    isc.triangle();
+    return 0;
+}
+
+----------
+====================
+----------
+CPP.29
+medium
+----------
+PROBLEM STATEMENT:
+In this challenge, the task is to debug the existing code to successfully execute all provided test files.
+
+
+
+The given code defines two classes HotelRoom and HotelApartment denoting respectively a standard hotel room and a hotel apartment. An instance of any of these classes has two parameters: bedrooms and bathrooms denoting respectively the number of bedrooms and the number of bathrooms in the room.
+
+The prices of a standard hotel room and hotel apartment are given as: 
+
+
+Hotel Room: [expression].
+Hotel Apartment: The price of a standard room with the same number bedrooms and bathrooms plus [expression]. 
+
+
+For example, if a standard room costs [expression].
+
+In hotel's codebase, there is a piece of code reading the list of rooms booked for today and calculates the total profit for the hotel. However, sometimes calculated profits are lower than they should be.
+
+Debug the existing HotelRoom and HotelApartment classes' implementations so that the existing code computing the total profit returns a correct profit.
+
+Your function will be tested against several cases by the locked template code.
+----------
+TOP SOLUTION:
+----------
+{"models":[],"page":1,"total":0}
+----------
+====================
+----------
+CPP.30
+medium
+----------
+PROBLEM STATEMENT:
+In this challenge, the task is to debug the existing code to successfully execute all provided test files.
+
+
+
+You are required to extend the existing code so that it handles std::invalid_argument exception properly. More specifically, you have to extend the implementation of process_input function. It takes integer [expression] as an argument and has to work as follows:
+
+
+It calls function largest_proper_divisor(n).
+If this call returns a value without raising an exception, it should print in a single line result=d where [expression] is the returned value.
+Otherwise, if the call raises a std::invalid_argument exception, it has to print in a single line the string representation of the raised exception, i.e. its message.
+Finally, no matter if the exception is raised or not, it should print in a single line returning control flow to caller after any other previously printed output.
+
+
+To keep the code quality high, you are advised to have exactly one line printing returning control flow to caller in the body of process_input function.
+
+Your function will be tested against several cases by the locked template code.
+----------
+TOP SOLUTION:
+----------
+{"models":[],"page":1,"total":0}
+----------
+====================
+----------
+CPP.31
+easy
+----------
+PROBLEM STATEMENT:
+Create two classes:
+
+Rectangle 
+The Rectangle class should have two data fields-width and height of int types. The class should have display() method, to print the width and height of the rectangle separated by space.
+
+RectangleArea 
+The RectangleArea class is derived from Rectangle class, i.e., it is the sub-class of Rectangle class. The class should have read_input() method, to read the values of width and height of the rectangle. The RectangleArea class should also overload the display() method to print the area [expression] of the rectangle.
+----------
+TOP SOLUTION:
+----------
+struct Rectangle {
+	int w, h;
+	void Display() {
+		printf("%d %d\n", w, h);
+	}
+};
+struct RectangleArea : Rectangle {
+	void Input() {
+		scanf("%d%d", &w, &h);
+	}
+	void Display() {
+		printf("%d\n", w * h);
+	}
+};
+
+
+----------
+====================
+----------
+CPP.32
+easy
+----------
+PROBLEM STATEMENT:
+Solve the problem Inheritance-Introduction before solving this problem.
+
+In the previous problem we learned about Inheritance and how can a derived class object use the member functions of the base class.
+
+In this we will see what multi-level inheritance is. Suppose we have a class A which is the base class and we have a class B which is derived from class A and we have a class C which is derived from class B, we can access the functions of both class A and class B by creating an object for class C. This is called Multi-Level inheritance. (B inherits A and C inherits B.)
+
+Now create a class called Equilateral which inherits from Isosceles and should have a function such that the output is as given below.
+----------
+TOP SOLUTION:
+----------
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+class Triangle{
+   public:
+      void triangle(){
+         cout<<"I am a triangle\n";
+      }
+};
+
+class Isosceles : public Triangle{
+     public:
+        void isosceles(){
+          cout<<"I am an isosceles triangle\n";
+        }
+};
+
+class Equilateral :public Isosceles{
+    public:
+    void equilateral(){
+        cout<<"I am an equilateral triangle\n";
+    }
+};
+   
+//Write your code here.
+int main(){
+    Equilateral eqr;
+    eqr.equilateral();
+    eqr.isosceles();
+    eqr.triangle();
+    return 0;
+}
+
+----------
+====================
+----------
+CPP.33
+medium
+----------
+PROBLEM STATEMENT:
+The task is to overload the p being an instance of class Person the result of:
+
+[expression]
+
+
+
+produces the following output:
+
+[expression]
+
+
+
+where:
+
+
+ is the value of p's first_name_
+ is the value of p's last_name_
+ is an arbitrary std::string value
+
+----------
+TOP SOLUTION:
+----------
+{"models":[],"page":1,"total":0}
+----------
+====================
+----------
+CPP.34
+medium
+----------
+PROBLEM STATEMENT:
+In real life applications and systems, a common component is a messaging system. Thea idea is that a sender sends messages to the recipient. The messages might be sent for example over the network. However, some network protocols don't guarantee to preserve the order of sent messages while they are received by the recipient. For example, if someone sends a text messages hello, hi and what's up, they might be received in the order what's up, hello, hi. In many systems the expected behavior is to preserve the order, so the order of sent messages is the same as the order of received messages. 
+
+In this problem, the task is to implement a software layer over the top of a network protocol sending messages in arbitrary order, in such a way that the sent messages are printed by the recipient in the order they were sent.
+
+In the template code below, there are implementations of classes Recipient and Network.
+
+Your task is to implement classes Message and MessageFactory according to the below specification:
+
+Class Message is required to store a text value of type std::string and provide a public getter const string& get_text() which is expected to return this text value. Besides that, it should implement the  operator that will be used in fix_order() method of the recipient to fix the order of received messages. Feel free to implement any other methods and class/instance variables. In particular, you can implement any additional constructors, but make sure that you provide an empty constructor, i.e. the one without arguments.
+
+Class MessageFactory is required to have an empty constructor, and implement a method Message create_message(const string& text) that is expected to return a Message object storing the value of text argument. Feel free to implement any other methods and class/instance variables of this class.
+
+The locked code template will act as follows. First, it creates objects message_factory and recipient. These objects are of types MessageFactory and Recipient respectively. Then, it reads messages from the standard input, and then it will use the provided Network class to simulate sending the messages to the recipient. The Network class randomly shuffles the passes messages and then it passes them to the recipient using recipient.receive(const Message&) method. After all messages are delivered, the recipient uses its own method print_messages to print all the received messages to the standard output, and just before doing that, it uses its own fix_order method to fix the order of retrieved messages. For that purpose, it uses std::sort() algorithm to sort the std::vector of received messages and this is the reason your Message class implementation has to provide the  operator.
+----------
+TOP SOLUTION:
+----------
+{"models":[],"page":1,"total":0}
+----------
+====================
+----------
+CPP.35
+medium
+----------
+PROBLEM STATEMENT:
+You are given three classes A, B and C. All three classes implement their own version of func.
+
+In class A, func  multiplies the value passed as a parameter by [expression]:
+
+[expression]
+[expression]
+    [expression]
+        [expression]
+            [expression]
+        [expression]
+    [expression]
+        [expression]
+        [expression]
+            [expression]
+        [expression]
+
+    [expression]
+        [expression]
+        [expression]
+            [expression]
+            [expression]
+        [expression]
+    [expression]
+        [expression]
+            [expression]
+        [expression]
+[expression]
+
+
+
+In class B, func multiplies the value passed as a parameter by [expression]:
+
+[expression]
+[expression]
+    [expression]
+        [expression]
+            [expression]
+        [expression]
+    [expression]
+        [expression]
+        [expression]
+            [expression]
+        [expression]
+    [expression]
+        [expression]
+        [expression]
+            [expression]
+            [expression]
+        [expression]
+    [expression]
+        [expression]
+            [expression]
+        [expression]
+[expression]
+
+
+
+In class C, func multiplies the value passed as a parameter by [expression]:
+
+[expression]
+[expression]
+    [expression]
+        [expression]
+            [expression]
+        [expression]
+    [expression]
+        [expression]
+        [expression]
+            [expression]
+        [expression]
+    [expression]
+        [expression]
+        [expression]
+            [expression]
+            [expression]
+        [expression]
+    [expression]
+        [expression]
+            [expression]
+        [expression]
+[expression]
+
+
+
+You are given a class D:
+
+[expression] 
+[expression]
+
+	[expression]
+	[expression]
+		[expression]
+		 [expression]
+		 [expression]
+		 	[expression]
+		 [expression]
+
+
+		 [expression]
+		 [expression]
+		 [expression]
+
+			
+		 [expression]
+		 [expression]
+		 [expression]
+[expression]
+
+
+
+You need to modify the class D and implement the function update_val  which sets D's val to new_val by manipulating the value by only calling the func defined in classes A, B and C. 
+
+It is guaranteed that new_val has only [expression] as its prime factors.
+----------
+TOP SOLUTION:
+----------
+class D : public A,public B,public C
+{
+
+  int val;
+  public:
+  //Initially val is 1
+  D()
+  {
+    val=1;
+  }
+
+
+  //Implement this function
+  void update_val(int new_val)
+  {
+    while (new_val!=val) {
+      if (new_val/val % 2 == 0) A::func(val);
+      else if (new_val/val % 3 == 0) B::func(val);
+      else if (new_val/val % 5 == 0) C::func(val);
+    }
+  }
+  //For Checking Purpose
+  void check(int); //Do not delete this line.
+};
+
+----------
+====================
+----------
+CPP.36
+hard
+----------
+PROBLEM STATEMENT:
+You are battling a powerful dark wizard. He casts his spells from a distance, 
+giving you only a few seconds to react and conjure your counterspells. For a counterspell to be effective, you must first identify what kind of spell you are dealing with.
+
+The wizard uses scrolls to conjure his spells, and sometimes he uses some of his generic spells that restore his stamina. In that case, you will be able to extract the name of the scroll from the spell. Then you need to find out how similar this new spell is to the spell formulas written in your spell journal.
+
+Spend some time reviewing the locked code in your editor, and complete the body of the counterspell function.
+
+Check Dynamic cast to get an idea of how to solve this challenge.
+----------
+TOP SOLUTION:
+----------
+  /* Enter your code here */
+if (dynamic_cast<Fireball*>(spell)){
+    Fireball *fire = dynamic_cast<Fireball*>(spell);
+    fire->revealFirepower();
+    
+}else if(dynamic_cast<Frostbite*>(spell)){
+    Frostbite *frost = dynamic_cast<Frostbite*>(spell);
+    frost->revealFrostpower();
+    
+} else if(dynamic_cast<Thunderstorm*>(spell)){
+    Thunderstorm *thunder = dynamic_cast<Thunderstorm*>(spell);
+    thunder->revealThunderpower();
+    
+} else if(dynamic_cast<Waterbolt*>(spell)) {
+    Waterbolt *water = dynamic_cast<Waterbolt*>(spell);
+    water->revealWaterpower();
+}else{
+    string X = spell->revealScrollName();
+    string Y = SpellJournal::read();
+    int m = X.length();
+	int n = Y.length();
+
+	int **L = new int*[m + 1];
+	for (int i = 0; i < m + 1; i++) {
+		L[i] = new int[n + 1];
+	}
+	int i, j;
+
+	/* Following steps build L[m+1][n+1] in bottom up fashion. Note
+	that L[i][j] contains length of LCS of X[0..i-1] and Y[0..j-1] */
+	for (i = 0; i <= m; i++)
+	{
+		for (j = 0; j <= n; j++)
+		{
+			if (i == 0 || j == 0)
+				L[i][j] = 0;
+
+			else if (X[i - 1] == Y[j - 1])
+				L[i][j] = L[i - 1][j - 1] + 1;
+
+			else
+				L[i][j] = max(L[i - 1][j], L[i][j - 1]);
+		}
+	}
+    cout << L[m][n] << endl;
+}
+
+----------
+====================
+----------
+CPP.37
+easy
+----------
+PROBLEM STATEMENT:
+A class template provides a specification for generating classes based on parameters. Class templates are generally used to implement containers. A class template is instantiated by passing a given set of types to it as template arguments. Here is an example of a class, MyTemplate, that can store one element of any type and that has just one member function divideBy2, which divides its value by 2. 
+
+template 
+class MyTemplate {
+T element;
+public:
+MyTemplate (T arg) {element=arg;}
+T divideBy2 () {return element/2;}
+};
+
+
+It is also possible to define a different implementation of a template for a specific type. This is called Template Specialization. For the template given above, we find that a different implementation for type char will be more useful, so we write a function printElement to print the char element:
+
+// class template specialization:
+template <
+class MyTemplate  {
+char element;
+public:
+MyTemplate (char arg) {element=arg;}
+char printElement ()
+{
+return element;
+}
+};
+
+
+You are given a main() function which takes a set of inputs. The type of input governs the kind of operation to be performed, i.e. concatenation for strings and addition for int or float. You need to write the class template  AddElements which has a function add() for giving the sum of int or float elements. You also need to write a template specialization for the type string with a function concatenate() to concatenate the second string to the first string.
+----------
+TOP SOLUTION:
+----------
+template <class T>
+class AddElements {
+    T element;
+  public:
+    AddElements (T arg) {element=arg;}
+    T add (T e2) {return element+e2;}
+    T concatenate (T e2) {return element+e2;}
+};
+----------
+====================
+----------
+CPP.38
+easy
+----------
+PROBLEM STATEMENT:
+Preprocessor directives are lines included in the code preceded by a hash sign (#). These lines are directives for the preprocessor. The preprocessor examines the code before actual compilation of code begins and resolves all these directives before any code is actually generated by regular statements.
+
+#define INF 10000000
+if( val == INF) {
+//Do something
+}
+After the preprocessor has replaced the directives, the code will be
+if( val == 10000000) { //Here INF is replaced by the value with which it's defined.
+//Do something
+}
+
+
+You can also define function macros which have parameters.
+
+#define add(a, b) a + b
+int x = add(a, b);
+
+The second statement after the preprocessor has replaced the directives will be:
+int x = a + b;
+
+
+To know more about preprocessor directives, you can go to this link
+
+You're spending your afternoon at a local school, teaching kids how to code. You give them a simple task: find the difference between the maximum and minimum values in an array of integers. 
+
+After a few hours, they came up with some promising source code. Unfortunately, it doesn't compile! Since you don't want to discourage them, you decide to make their code work without modifying it by adding preprocessor macros.
+
+Review the locked stub code in your editor and add the preprocessor macros necessary to make the code work.
+----------
+TOP SOLUTION:
+----------
+/* Enter your macros here */
+#define toStr(a) #a
+#define io(v) cin >> v
+#define FUNCTION(f, op) void f(int &x, int y){ if (y op x) x=y; }
+#define INF 0x3fffffff
+#define foreach(v, i) for (int i=0; i<v.size(); i++)
+----------
+====================
+----------
+CPP.39
+medium
+----------
+PROBLEM STATEMENT:
+Classes define new types in C++. Types in C++ not only interact by means of constructions and assignments but also via operators. For example:
+
+int a=2, b=1, c;
+c = b + a;
+
+
+The result of variable c will be 3. 
+Similarly, classes can also perform operations using operator overloading. Operators are overloaded by means of operator functions, which are regular functions with special names. Their name begins with the operator keyword followed by the operator sign that is overloaded. The syntax is:
+
+type operator sign (parameters) { /*... body ...*/ }
+
+
+You are given a main() function which takes a set of inputs to create two matrices and prints the result of their addition. You need to write the class Matrix which has a member a of type vector . You also need to write a member function to overload the operator +. The function's job will be to add two objects of Matrix type and return the resultant Matrix.
+----------
+TOP SOLUTION:
+----------
+class Matrix {
+  public:
+    Matrix() {}
+    Matrix(const Matrix& x) : a(x.a) {}
+    Matrix(const vector<vector<int>>& v) : a(v) {}
+    Matrix operator+(const Matrix&);
+    vector<vector<int>> a;
+};
+
+Matrix Matrix::operator+(const Matrix& m){
+	vector<vector<int>> vv = a;
+    for (int i=0; i<vv.size(); i++){
+		for (int j=0; j<vv[0].size(); j++){
+			vv[i][j] += m.a[i][j];
+		}
+	}
+	return Matrix(vv);
+}
+
+----------
+====================
+----------
+CPP.40
+easy
+----------
+PROBLEM STATEMENT:
+You are given a class - Complex.
+
+class Complex
+{
+public:
+    int a,b;
+};
+
+
+Operators are overloaded by means of operator functions, which are regular functions with special names. Their name begins with the operator keyword followed by the operator sign that is overloaded. The syntax is:
+
+type operator sign (parameters) { /*... body ...*/ }
+
+
+You need to overload operators + and  for the Complex class. 
+
+The operator + should add complex numbers according to the rules of complex addition:   
+
+(a+ib)+(c+id) = (a+c) + i(b+d)  
+
+
+Overload the stream insertion operator  to add "[expression]" to the stream:  
+
+cout<<c<<endl;
+
+
+The above statement should print "[expression].
+----------
+TOP SOLUTION:
+----------
+//Overload operators + and << for the class complex
+//+ should add two complex numbers as (a+ib) + (c+id) = (a+c) + i(b+d)
+//<< should print a complex number in the format "a+ib"
+Complex operator+(Complex a,Complex b)
+    {
+    Complex temp;
+    temp.a = a.a + b.a;
+    temp.b = a.b + b.b;
+    return temp;
+}
+
+ostream& operator<<(ostream& stream,Complex A)
+    {
+    stream<<A.a<<"+i"<<A.b;
+    return stream;
+}
+----------
+====================
+----------
+CPP.41
+medium
+----------
+PROBLEM STATEMENT:
+A student signed up for [expression] workshops and wants to attend the maximum number of workshops where no two workshops overlap. You must do the following:
+
+Implement [expression] structures: 
+
+
+struct Workshop having the following members:
+
+The workshop's start time.
+The workshop's duration.
+The workshop's end time.
+struct Available_Workshops having the following members:
+
+An integer, [expression] (the number of workshops the student signed up for).
+An array of type Workshop array having size [expression].
+
+
+Implement [expression] functions:
+
+
+Available_Workshops* initialize (int start_time[], int duration[], int n)   
+Creates an Available_Workshops object and initializes its elements using the elements in the [expression] workshop. This function must return a pointer to an Available_Workshops object.
+int CalculateMaxWorkshops(Available_Workshops* ptr)  
+Returns the maximum number of workshops the student can attend—without overlap. The next workshop cannot be attended until the previous workshop ends.
+
+
+Note: An array of unknown size ([expression]) should be declared as follows:
+
+DataType* arrayName = new DataType[n];
+
+----------
+TOP SOLUTION:
+----------
+struct Workshop {
+	int start_time, duration, end_time;
+	bool operator<(const Workshop& another) const {
+		return end_time < another.end_time;
+	}
+};
+
+struct Available_Workshops {
+	int N;
+	vector<Workshop> arr;
+};
+
+Available_Workshops* initialize(int start_time[], int duration[], int N) {
+	Available_Workshops* workshop = new Available_Workshops;
+	workshop->N = N;
+	for (int i = 0; i < N; i++) {
+		Workshop temp;
+		temp.start_time = start_time[i];
+		temp.duration = duration[i];
+		temp.end_time = start_time[i] + duration[i];
+		workshop->arr.push_back(temp);
+	}
+	return workshop;
+}
+
+int CalculateMaxWorkshops(Available_Workshops* ptr) {
+	int res = 0;
+	sort(ptr->arr.begin(), ptr->arr.end());
+	int end_time = -1;
+	for (int i = 0; i < ptr->N; i++) {
+		if (ptr->arr[i].start_time >= end_time) {
+			res++;
+			end_time = ptr->arr[i].end_time;
+		}
+	}
+	return res;
+}
+----------
+====================
+----------
+CPP.42
+medium
+----------
+PROBLEM STATEMENT:
+You are given a main function which reads the enumeration values for two different types as input, then prints out the corresponding  enumeration names. Write a class template that can provide the names of the enumeration values for both types. If the enumeration value is not valid, then print unknown.
+----------
+TOP SOLUTION:
+----------
+#include <string>
+
+template <typename T> struct Traits
+{
+    static std::string name(int index) { return "unknown"; }
+};
+
+template<> struct Traits<Fruit>
+{
+    static std::string name(int index)
+    {
+        switch((Fruit)index) {
+        case Fruit::apple:      return "apple";
+        case Fruit::orange:     return "orange";
+        case Fruit::pear:       return "pear";
+        default:                return "unknown";
+        }
+    }
+};
+
+template<> struct Traits<Color>
+{
+    static std::string name(int index)
+    {
+        switch((Color)index) {
+        case Color::red:        return "red";
+        case Color::green:      return "green";
+        case Color::orange:     return "orange";
+        default:                return "unknown";
+        }
+    }
+};
+----------
+====================
+----------
+CPP.43
+hard
+----------
+PROBLEM STATEMENT:
+A template parameter pack is a template parameter that accepts zero or more template arguments (non-types, types, or templates). To read more about parameter pack, click here.
+
+Create a template function named reversed_binary_value. It must take an arbitrary number of bool values as template parameters. These booleans represent binary digits in reverse order. Your function must return an integer corresponding to the binary value of the digits represented by the booleans. For example:  reversed_binary_value() should return [expression].
+----------
+TOP SOLUTION:
+----------
+template <bool... digits>
+struct Solver;
+    
+template <bool Head, bool... Tail>
+struct Solver<Head, Tail...>
+{
+    static int value()
+    {
+        return Head + 2 * Solver<Tail...>::value();
+    }
+};
+
+template <>
+struct Solver<>
+{
+    static int value()
+    {
+        return 0;
+    }
+};
+
+template <bool... digits>
+int reversed_binary_value()
+{
+    return Solver<digits...>::value();
+}
+----------
+====================
+----------
+CPP.44
+hard
+----------
+PROBLEM STATEMENT:
+You are given four integers: [expression] with the following pseudo-code.
+
+a[0] = S (modulo 2^31)
+for i = 1 to N-1
+    a[i] = a[i-1]*P+Q (modulo 2^31) 
+
+
+Your task is to calculate the number of distinct integers in the sequence [expression].
+----------
+TOP SOLUTION:
+----------
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+unsigned long long mask[40000000];
+
+unsigned insert(unsigned x) {
+    unsigned res = (mask[x >> 6] & (1ULL << (x & 0x3F))) == 0;
+    mask[x >> 6] |= 1ULL << (x & 0x3F);
+    return res;
+}
+
+int main() {
+    unsigned N, S, P, Q;
+    cin >> N >> S >> P >> Q;
+    unsigned x = S;
+    unsigned ans = 0;
+    ans += insert(x);
+    for (unsigned i = 1; i < N; i++) {
+        x = (1LL * x * P + Q) % 2147483648;
+        ans += insert(x);
+    }
+    cout << ans << endl;
+    return 0;
+}
+
+----------
+====================

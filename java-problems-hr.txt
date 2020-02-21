@@ -1,0 +1,297 @@
+
+----------
+JAVA.1
+easy
+----------
+PROBLEM STATEMENT:
+Welcome to the world of Java! In this challenge, we practice printing to stdout.
+
+The code stubs in your editor declare a Solution class and a main method. Complete the main method by copying the two lines of code below and pasting them inside the body of your main method.
+
+[expression]
+[expression]
+
+
+----------
+TOP SOLUTION:
+----------
+{"models":[],"page":1,"total":0}
+----------
+====================
+----------
+JAVA.2
+easy
+----------
+PROBLEM STATEMENT:
+Most HackerRank challenges require you to read input from stdin (standard input) and write output to stdout (standard output).
+
+One popular way to read input from stdin is by using the Scanner class and specifying the Input Stream as System.in. For example:
+
+[expression]
+[expression]
+[expression]
+[expression]
+
+[expression]
+[expression]
+
+
+
+The code above creates a Scanner object named [expression] and uses it to read a String and an int. It then closes the Scanner object because there is no more input to read, and prints to stdout using System.out.println(String). So, if our input is:
+
+Hi 5
+
+
+Our code will print:
+
+myString is: Hi
+myInt is: 5
+
+
+Alternatively, you can use the BufferedReader class.
+
+Task 
+In this challenge, you must read [expression] integers from stdin and then print them to stdout. Each integer must be printed on a new line. To make the problem a little easier, a portion of the code is provided for you in the editor below.
+----------
+TOP SOLUTION:
+----------
+{"models":[],"page":1,"total":0}
+----------
+====================
+----------
+JAVA.3
+easy
+----------
+PROBLEM STATEMENT:
+In this challenge, we test your knowledge of using if-else conditional statements to automate decision-making processes. An if-else statement has the following logical flow:
+
+
+
+Source: Wikipedia
+
+Task 
+Given an integer, [expression], perform the following conditional actions:
+
+
+If [expression] is odd, print Weird
+If [expression], print Not Weird
+If [expression], print Weird
+If [expression], print Not Weird
+
+
+Complete the stub code provided in your editor to print whether or not [expression] is weird.
+----------
+TOP SOLUTION:
+----------
+{"models":[],"page":1,"total":0}
+----------
+====================
+----------
+JAVA.4
+easy
+----------
+PROBLEM STATEMENT:
+In this challenge, you must read an integer, a double, and a String from stdin, then print the values according to the instructions in the Output Format section below. To make the problem a little easier, a portion of the code is provided for you in the editor.
+
+Note: We recommend completing Java Stdin and Stdout I before attempting this challenge.
+----------
+TOP SOLUTION:
+----------
+{"models":[],"page":1,"total":0}
+----------
+====================
+----------
+JAVA.5
+easy
+----------
+PROBLEM STATEMENT:
+Java's System.out.printf function can be used to print formatted output. The purpose of this exercise is to test your understanding of formatting output using printf.
+
+To get you started, a portion of the solution is provided for you in the editor; you must format and print the input to complete the solution.
+----------
+TOP SOLUTION:
+----------
+{"models":[],"page":1,"total":0}
+----------
+====================
+----------
+JAVA.6
+easy
+----------
+PROBLEM STATEMENT:
+Objective 
+In this challenge, we're going to use loops to help us do some simple math.
+
+Task 
+Given an integer, [expression]) should be printed on a new line in the form: N x i = result.
+----------
+TOP SOLUTION:
+----------
+{"models":[],"page":1,"total":0}
+----------
+====================
+----------
+JAVA.7
+easy
+----------
+PROBLEM STATEMENT:
+We use the integers [expression] to create the following series:
+
+[expression]
+
+You are given [expression] space-separated integers. 
+----------
+TOP SOLUTION:
+----------
+{"models":[],"page":1,"total":0}
+----------
+====================
+----------
+JAVA.8
+easy
+----------
+PROBLEM STATEMENT:
+Java has 8 primitive data types; char, boolean, byte, short, int, long, float, and double. For this exercise, we'll work with the primitives used to hold integer values (byte, short, int, and long):
+
+
+A byte is an 8-bit signed integer.
+A short is a 16-bit signed integer.
+An int is a 32-bit signed integer.
+A long is a 64-bit signed integer.
+
+
+Given an input integer, you must determine which primitive data types are capable of properly storing that input.
+
+To get you started, a portion of the solution is provided for you in the editor.
+
+Reference: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html
+----------
+TOP SOLUTION:
+----------
+{"models":[],"page":1,"total":0}
+----------
+====================
+----------
+JAVA.9
+easy
+----------
+PROBLEM STATEMENT:
+
+  "In computing, End Of File (commonly abbreviated EOF) is a condition in a computer operating system where no more data can be read from a data source."
+  — (Wikipedia: End-of-file)
+
+
+The challenge here is to read [expression] lines of content.
+
+Hint: Java's Scanner.hasNext() method is helpful for this problem.
+----------
+TOP SOLUTION:
+----------
+{"models":[],"page":1,"total":0}
+----------
+====================
+----------
+JAVA.10
+easy
+----------
+PROBLEM STATEMENT:
+Static initialization blocks are executed when the class is loaded, and you can initialize static variables in those blocks.
+
+It's time to test your knowledge of Static initialization blocks. You can read about it here.  
+
+You are given a class Solution with a main method. Complete the given code so that it outputs the area of a parallelogram with breadth [expression]. You should read the variables from the standard input.
+
+If [expression], the output should be "java.lang.Exception: Breadth and height must be positive" without quotes.
+----------
+TOP SOLUTION:
+----------
+{"models":[],"page":1,"total":0}
+----------
+====================
+----------
+JAVA.11
+easy
+----------
+PROBLEM STATEMENT:
+You are given an integer [expression], you have to convert it into a string.
+
+Please complete the partially completed code in the editor. If your code successfully converts [expression] the code will print "Good job". Otherwise it will print "Wrong answer".
+
+[expression] inclusive.
+----------
+TOP SOLUTION:
+----------
+{"models":[],"page":1,"total":0}
+----------
+====================
+----------
+JAVA.12
+easy
+----------
+PROBLEM STATEMENT:
+The Calendar class is an abstract class that provides methods for converting between a specific instant in time and a set of calendar fields such as YEAR, MONTH, DAY_OF_MONTH, HOUR, and so on, and for manipulating the calendar fields, such as getting the date of the next week.
+
+
+
+You are given a date. You just need to write the method, [expression], which returns the day on that date.  To simplify your task, we have provided a portion of the code in the editor. 
+
+For example, if you are given the date [expression] as the day on that date. 
+
+
+----------
+TOP SOLUTION:
+----------
+{"models":[],"page":1,"total":0}
+----------
+====================
+----------
+JAVA.13
+easy
+----------
+PROBLEM STATEMENT:
+Given a double-precision number, [expression] into the US, Indian, Chinese, and French currency formats. Then print the formatted values as follows:
+
+US: formattedPayment
+India: formattedPayment
+China: formattedPayment
+France: formattedPayment
+
+
+where [expression] formatted according to the appropriate Locale's currency.
+
+Note: India does not have a built-in Locale, so you must construct one where the language is en (i.e., English).
+----------
+TOP SOLUTION:
+----------
+{"models":[],"page":1,"total":0}
+----------
+====================
+----------
+JAVA.14
+easy
+----------
+PROBLEM STATEMENT:
+
+  "A string is traditionally a sequence of characters, either as a literal constant or as some kind of variable." — Wikipedia: String (computer science)
+
+
+This exercise is to test your understanding of Java Strings. A sample String declaration:
+
+String myString = "Hello World!"
+
+
+The elements of a String are called characters. The number of characters in a String is called the length, and it can be retrieved with the String.length() method.
+
+Given two strings of lowercase English letters, [expression], perform the following operations:
+
+
+Sum the lengths of [expression].
+Determine if [expression] in the dictionary?).
+Capitalize the first letter in [expression] and print them on a single line, separated by a space.
+
+----------
+TOP SOLUTION:
+----------
+SOLUTION NOT FOUND
+----------
+====================

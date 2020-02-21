@@ -30,24 +30,24 @@ test_data = keras.preprocessing.sequence.pad_sequences(test_tuple[0], value=0, p
 
 print(train_data[0], train_data[-1])
 
-embedding = "https://tfhub.dev/google/tf2-preview/gnews-swivel-20dim/1"
-model = keras.Sequential()
-model.add(keras.layers.Embedding(4708, 16))
-model.add(keras.layers.GlobalAveragePooling1D())
-model.add(keras.layers.Dense(16, activation=tf.nn.relu))
-model.add(keras.layers.Dense(1, activation=tf.nn.sigmoid))
+# embedding = "https://tfhub.dev/google/tf2-preview/gnews-swivel-20dim/1"
+# model = keras.Sequential()
+# model.add(keras.layers.Embedding(4708, 16))
+# model.add(keras.layers.GlobalAveragePooling1D())
+# model.add(keras.layers.Dense(16, activation=tf.nn.relu))
+# model.add(keras.layers.Dense(1, activation=tf.nn.sigmoid))
 
-model.summary()
+# model.summary()
 
-model.compile(optimizer='adam', loss=tf.keras.losses.BinaryCrossentropy(from_logits=True), metrics=['accuracy'])
+# model.compile(optimizer='adam', loss=tf.keras.losses.BinaryCrossentropy(from_logits=True), metrics=['accuracy'])
 
-history = model.fit(train_data, 
-                    train_tuple[1], 
-                    epochs=1000, 
-                    batch_size=32, 
-                    validation_data=(test_data, test_tuple[1]), 
-                    verbose=1)
+# history = model.fit(train_data, 
+#                     train_tuple[1], 
+#                     epochs=1000, 
+#                     batch_size=32, 
+#                     validation_data=(test_data, test_tuple[1]), 
+#                     verbose=1)
 
-results = model.evaluate(test_data, test_tuple[1])
-print(results)
-exit()
+# results = model.evaluate(test_data, test_tuple[1])
+# print(results)
+# exit()

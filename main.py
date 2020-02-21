@@ -67,16 +67,20 @@ problem_list.pop()
 # This stores the final urls
 problem_urls = []
 
-output_file = open("output.txt", "w")
+output_file = open(args.category + "-problems-hr.txt", "w")
 
 # For every problem card, it finds the problem name
 # and inserts it into a full url and stores it in the list
 for element in problem_list:
-    complete_url = "https://www.hackerrank.com/challenges/" \
-                    + problem_name_regex.findall(element)[0] \
-                    + "/problem"
-    difficulty = difficulty_regex.findall(element)[0]
-    problem_urls.append([complete_url, difficulty])
+    try:
+        difficulty = difficulty_regex.findall(element)[0]
+        complete_url = "https://www.hackerrank.com/challenges/" \
+                        + problem_name_regex.findall(element)[0] \
+                        + "/problem"
+        
+        problem_urls.append([complete_url, difficulty])
+    except IndexError:
+        print('unknown problem')
     #if len(difficulty) > 1:     
         #problem_urls.append([complete_url, difficulty[0]])
 
@@ -94,3 +98,4 @@ for problem_url in problem_urls:
 output_file.close()
 
 print("Done")
+driver.close

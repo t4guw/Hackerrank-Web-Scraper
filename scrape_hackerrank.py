@@ -122,6 +122,7 @@ def get_problem_solution(driver, count):
         # driver.find_element_by_css_selector('#hr_v2 > div.portal-wrapper > div > div > div > section > div > div.ui-dialog-body > div > div > button.btn.hr_primary-btn.hr-dialog-button').click()
         WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '#hr_v2 > div.portal-wrapper > div > div > div > section > div > div.ui-dialog-body > div > div > button.btn.hr_primary-btn.hr-dialog-button')))
         driver.find_element_by_css_selector('#hr_v2 > div.portal-wrapper > div > div > div > section > div > div.ui-dialog-body > div > div > button.btn.hr_primary-btn.hr-dialog-button').click()
+        #time.sleep(2)
     except:
         x = "Do Nothing"
 
@@ -136,7 +137,8 @@ def get_problem_solution(driver, count):
         #top_solution_link = top_link_regex.findall(driver.find_element_by_css_selector('#content > div > div > div > div.community-content > div > div.challenge-leaderboard > div > div > div.ui-tabs-wrap > div > section > div.general-table-wrapper > div > div > div.table-body > div:nth-child(1) > div > div.table-row-column.ellipsis.solutions').get_attribute('innerHTML'))[0]
         #top_solution_link = top_link_regex.findall(driver.find_element_by_css_selector(solution_selector))
         top_solution_link = get_cpp_link(driver)
-        driver.get("https://www.hackerrank.com/rest/contests" + top_solution_link)
+        driver.get("https://www.hackerrank.com/rest/contests/" + top_solution_link)
+        print("https://www.hackerrank.com/rest/contests/" + top_solution_link)
     except:
         return 'SOLUTION NOT FOUND'
     
