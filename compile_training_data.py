@@ -40,7 +40,7 @@ def get_dataset():
         examp_label_pairs.append((examples[i], labels[i]))
     
     # print("\n\n\nHERE!!!!!\n\n\n", examples[10], type(examples[10]))
-    return ((examples[0:train_end], labels[0:train_end]), (examples[train_end:-1], labels[train_end:-1]))
+    return (examp_label_pairs[0:train_end], examp_label_pairs[train_end:-1])
 
 
 
